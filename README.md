@@ -1,0 +1,1 @@
+This is the toplevel of the SoC for our first tapeout. It is based on a 32-bit RISC-V processor with a few experimental extension.
