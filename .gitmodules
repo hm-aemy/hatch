@@ -1,6 +1,6 @@
 [submodule "src/soc/cv32e40x"]
 	path = src/soc/cv32e40x
-	url = https://gitlab.lrz.de/aemy/projects/scale4edge/cv32e40x.git
+	url = ../../projects/scale4edge/cv32e40x.git
 	branch = AHC_48bc
 [submodule "src/soc/cv32e40x_base"]
 	path = src/soc/cv32e40x_base
