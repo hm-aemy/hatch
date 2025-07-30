@@ -1,7 +1,13 @@
-module hatch_core(
+module hatch_core #(parameter 
+                              BOOT_ADDR         = 'h80,
+                              DM_HALTADDRESS    = 32'h1A11_0800,
+                              HART_ID           = 32'h0000_0000,
+                              IMP_ID            = 32'h0000_0000
+                              )(
     // Clock and reset
     input  logic            clk_i,
     input  logic            rst_ni,
+
     
     //intruction memory interface
     output logic                          instr_req_o,
@@ -32,7 +38,10 @@ module hatch_core(
 
     // CPU control signals
     input  logic            fetch_enable_i,
-    output logic            core_sleep_o
+    output logic            core_sleep_o,
+
+    input logic             time_counter,
+    input logic             debug_req
     );
 
     cv32e40x_if_xif ext_if();
@@ -44,12 +53,12 @@ module hatch_core(
       .scan_cg_en_i          ( 1'b0                  ),
 
       // Static configuration
-      .boot_addr_i           ( BootAddr              ),
+      .boot_addr_i           ( BOOT_ADDR             ),
       .dm_exception_addr_i   ( '0                    ),
-      .dm_halt_addr_i        ( '0                    ),
-      .mhartid_i             ( HartId                ),
-      .mimpid_patch_i        ( 4'b0                  ),
-      .mtvec_addr_i          ( MtvecAddr             ),
+      .dm_halt_addr_i        ( DM_HALTADDRESS        ),
+      .mhartid_i             ( HART_ID               ),
+      .mimpid_patch_i        ( IMP_ID                ),
+      .mtvec_addr_i          ( '0                    ),
 
       // Instruction memory interface
      .instr_req_o            ( instr_req_o          ),
@@ -93,14 +102,14 @@ module hatch_core(
       .xif_result_if         ( ext_if                ),
 
       // Basic interrupt architecture
-      .irq_i                 ( irq                   ),
+      .irq_i                 ( {32{1'b0}}            ),
 
       // Event wakeup signals
       .wu_wfe_i              ( 1'b0                  ),
 
       // CLIC interrupt architecture
       .clic_irq_i            ( 1'b0                  ),
-      .clic_irq_id_i         ( '0                    ),
+      .clic_irq_id_i         ( 12'h0                    ),
       .clic_irq_level_i      ( 8'h0                  ),
       .clic_irq_priv_i       ( 2'h0                  ),
       .clic_irq_shv_i        ( 1'b0                  ),
@@ -110,7 +119,7 @@ module hatch_core(
       .fencei_flush_ack_i    ( 1'b1                  ),
 
       // Debug interface
-      .debug_req_i           ( 1'b0                  ),
+      .debug_req_i           ( debug_req                  ),
       .debug_havereset_o     (                       ),
       .debug_running_o       (                       ),
       .debug_halted_o        (                       ),
