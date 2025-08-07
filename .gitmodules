@@ -5,3 +5,6 @@
 [submodule "src/soc/cv32e40x_base"]
 	path = src/soc/cv32e40x_base
 	url = https://github.com/openhwgroup/cv32e40x.git
+[submodule "src/soc/cv32e40p"]
+	path = src/soc/cv32e40p
+	url = https://github.com/openhwgroup/cv32e40p.git
