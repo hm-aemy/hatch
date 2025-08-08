@@ -8,3 +8,6 @@
 [submodule "src/soc/cv32e40p"]
 	path = src/soc/cv32e40p
 	url = https://github.com/openhwgroup/cv32e40p.git
+[submodule "src/croc"]
+	path = src/croc
+	url = https://gitlab.lrz.de/aemy/chips/croc.git
