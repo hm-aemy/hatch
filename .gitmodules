@@ -1,3 +1,4 @@
 [submodule "src/croc"]
 	path = src/croc
-	url = https://github.com/pulp-platform/croc.git
+	url = ../croc.git
+	branch = librelane
