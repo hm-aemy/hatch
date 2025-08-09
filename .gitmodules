@@ -10,4 +10,4 @@
 	url = https://github.com/openhwgroup/cv32e40p.git
 [submodule "src/croc"]
 	path = src/croc
-	url = https://gitlab.lrz.de/aemy/chips/croc.git
+	url = https://github.com/pulp-platform/croc.git
