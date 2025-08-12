@@ -70,8 +70,8 @@ module core_wrap import croc_pkg::*; #() (
     .hart_id_i       (HartId),
 
     .mtvec_addr_i    (0),
-    .dm_halt_addr_i  (0),
-    .dm_exception_addr_i (0),
+    .dm_halt_addr_i  (32'h800),
+    .dm_exception_addr_i (32'h808),
     
     // Instruction Memory Interface:
     .instr_req_o,
