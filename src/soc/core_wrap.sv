@@ -51,9 +51,13 @@ module core_wrap import croc_pkg::*; #() (
   logic core_sleep;
   assign core_busy_o = ~core_sleep;
 
+  logic irq_external, irq_software;
+  assign irq_external = 0;
+  assign irq_software = 0;
+
   cv32e40p_top #(
     .COREV_PULP       (0),
-    .COREV_CLUSTER    (0),
+    .COREV_CLUSTER    (1),
     .FPU              (0),
     .FPU_ADDMUL_LAT   (0),
     .FPU_OTHERS_LAT   (0),
@@ -90,7 +94,7 @@ module core_wrap import croc_pkg::*; #() (
     .data_wdata_o,
     .data_rdata_i,
 
-    .irq_i    (0),
+    .irq_i    ({irq_fast_i, 4'b0, irq_external, 3'b0, timer0_irq_i, 3'b0, irq_software, 3'b0}),
     .irq_ack_o(),
     .irq_id_o (),
 
