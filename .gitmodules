@@ -1,3 +1,6 @@
 [submodule "src/croc"]
 	path = src/croc
 	url = https://github.com/pulp-platform/croc.git
+[submodule "src/cv32e40p"]
+	path = src/cv32e40p
+	url = ../cv32e40p

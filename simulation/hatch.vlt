@@ -108,27 +108,40 @@ ${HATCH_TOP}/src/croc/rtl/obi/obi_mux.sv
 ${HATCH_TOP}/src/croc/rtl/obi/obi_sram_shim.sv
 ${HATCH_TOP}/src/croc/rtl/obi/obi_xbar.sv
 
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_pkg.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_alu.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_compressed_decoder.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_controller.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_counter.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_csr.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_decoder.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_fetch_fifo.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_load_store_unit.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_multdiv_fast.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_multdiv_slow.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_pmp.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_register_file_ff.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_wb.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_cs_registers.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_ex_block.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_id_stage.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_prefetch_buffer.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_if_stage.sv
-${HATCH_TOP}/src/croc/rtl/cve2/cve2_core.sv
++incdir+${HATCH_TOP}/src/cv32e40p/rtl/include
++incdir+${HATCH_TOP}/src/cv32e40p/rtl/../bhv
++incdir+${HATCH_TOP}/src/cv32e40p/rtl/../bhv/include
++incdir+${HATCH_TOP}/src/cv32e40p/rtl/../sva
 
+${HATCH_TOP}/src/cv32e40p/rtl/include/cv32e40p_apu_core_pkg.sv
+${HATCH_TOP}/src/cv32e40p/rtl/include/cv32e40p_fpu_pkg.sv
+${HATCH_TOP}/src/cv32e40p/rtl/include/cv32e40p_pkg.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_if_stage.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_cs_registers.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_register_file_ff.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_load_store_unit.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_id_stage.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_aligner.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_decoder.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_compressed_decoder.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_fifo.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_prefetch_buffer.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_hwloop_regs.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_mult.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_int_controller.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_ex_stage.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_alu_div.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_alu.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_ff_one.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_popcnt.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_apu_disp.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_controller.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_obi_interface.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_prefetch_controller.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_sleep_unit.sv
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_core.sv
+
+${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_top.sv
 
 ${HATCH_TOP}/src/croc/rtl/obi_uart/obi_uart_pkg.sv
 ${HATCH_TOP}/src/croc/rtl/obi_uart/obi_uart_baudgen.sv
@@ -176,11 +189,14 @@ ${HATCH_TOP}/src/croc/rtl/soc_ctrl/soc_ctrl_reg_pkg.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio_reg_pkg.sv
 
 
-${HATCH_TOP}/src/croc/rtl/core_wrap.sv
+${HATCH_TOP}/src/soc/core_wrap.sv
 ${HATCH_TOP}/src/croc/rtl/soc_ctrl/soc_ctrl_reg_top.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio_reg_top.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio.sv
 ${HATCH_TOP}/src/croc/rtl/croc_domain.sv
 ${HATCH_TOP}/src/croc/rtl/user_domain.sv
 ${HATCH_TOP}/src/soc/hatch.sv
+
+${HATCH_TOP}/src/soc/cv32e40p_clock_gate.sv
+
 tb_hatch.sv
