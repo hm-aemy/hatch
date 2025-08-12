@@ -1,5 +1,5 @@
 variables:
-  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SUBMODULE_STRATEGY: normal
 
 image:
   name: ghcr.io/hm-aemy/iic-osic-tools:latest
@@ -10,18 +10,19 @@ build:
 
   script:
     - source ~/.bashrc
-    - cd simulation && make build-verilator
+    - cd simulation && make build-verilator 2>&1 | tee build.log
 
   artifacts:
     paths:
       - simulation/obj_dir/Vtb_hatch
+      - simulation/build.log
 
 smoketest:
   stage: test
 
   script:
     - source ~/.bashrc
-    - cd simulation && make sim-verilator > sim.log
+    - cd simulation && make sim-verilator 2>&1 | tee sim.log
 
   artifacts:
     paths:
