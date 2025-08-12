@@ -1,0 +1,23 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+image:
+  name: ghcr.io/hm-aemy/iic-osic-tools:latest
+  entrypoint: [""]
+
+build:
+  stage: build
+
+  script:
+    - cd simulation; make build-verilator
+
+smoketest:
+  stage: test
+
+  script:
+    - cd simulation; make sim-verilator > sim.log
+
+  artifacts:
+    paths:
+      - simulation/hatch.fst
+      - simulation/sim.log
