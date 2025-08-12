@@ -9,13 +9,19 @@ build:
   stage: build
 
   script:
-    - cd simulation; make build-verilator
+    - source ~/.bashrc
+    - cd simulation && make build-verilator
+
+  artifacts:
+    paths:
+      - simulation/obj_dir/Vtb_hatch
 
 smoketest:
   stage: test
 
   script:
-    - cd simulation; make sim-verilator > sim.log
+    - source ~/.bashrc
+    - cd simulation && make sim-verilator > sim.log
 
   artifacts:
     paths:
