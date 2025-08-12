@@ -69,7 +69,7 @@ module core_wrap import croc_pkg::*; #() (
     .boot_addr_i     (boot_addr),
     .hart_id_i       (HartId),
 
-    .mtvec_addr_i    (0),
+    .mtvec_addr_i    (boot_addr),
     .dm_halt_addr_i  (32'h800),
     .dm_exception_addr_i (32'h808),
     
