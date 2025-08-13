@@ -1,4 +1,6 @@
-set(CROSS_COMPILE "riscv64-elf-")
+if(NOT DEFINED CROSS_COMPILE)
+    set(CROSS_COMPILE "riscv64-unknown-elf-")
+endif()
 
 set(CMAKE_SYSTEM_NAME Generic-ELF)
 set(CMAKE_SYSTEM_PROCESSOR riscv32)
