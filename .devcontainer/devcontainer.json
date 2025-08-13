@@ -1,0 +1,4 @@
+{
+	"name": "IIC-OSIC-TOOLS",
+    "image": "ghcr.io/hm-aemy/iic-osic-tools:latest"
+}
