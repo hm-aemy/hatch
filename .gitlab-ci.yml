@@ -38,8 +38,21 @@ smoketest:
   script:
     - source ~/.bashrc
     - cd simulation && make sim-verilator 2>&1 | tee sim.log
+    
+.run-software-template:
+  stage: test
+
+  script:
+    - source ~/.bashrc
+    - cd simulation && SW_HEX=../software/${APP}/build/${APP}.hex make sim-verilator 2>&1 | tee sim.log
 
   artifacts:
     paths:
       - simulation/hatch.fst
       - simulation/sim.log
+
+run-software:
+  extends: .run-software-template
+  parallel:
+    matrix:
+      - APP: ["hello", "smoketest"]
