@@ -17,21 +17,6 @@ build-sim:
       - simulation/obj_dir/Vtb_hatch
       - simulation/build.log
 
-.build-software-template:
-  stage: build
-  script:
-    - source ~/.bashrc
-    - cd software/${APP}; mkdir -p build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=../../riscv32.cmake; make
-  artifacts:
-    paths:
-      - software/${APP}/build/${APP}.{elf,dis,hex}
-
-build-software:
-  extends: .build-software-template
-  parallel:
-    matrix:
-      - APP: ["hello", "smoketest"]
-
 smoketest:
   stage: test
 
@@ -44,12 +29,21 @@ smoketest:
 
   script:
     - source ~/.bashrc
-    - cd simulation && SW_HEX=../software/${APP}/build/${APP}.hex make sim-verilator 2>&1 | tee sim.log
+    - cd software/${APP}
+    - mkdir -p build
+    - cd build
+    - cmake .. -DCMAKE_TOOLCHAIN_FILE=../../riscv32.cmake
+    - make
+    - cd ../../..
+    - cd simulation
+    - SW_HEX=../software/${APP}/build/${APP}.hex make sim-verilator 2>&1 | tee sim.log
 
   artifacts:
     paths:
+      - software/${APP}/build/${APP}.{elf,dis,hex}
       - simulation/hatch.fst
       - simulation/sim.log
+    name: "${APP}-artifacts"
 
 run-software:
   extends: .run-software-template
