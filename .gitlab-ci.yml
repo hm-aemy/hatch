@@ -17,16 +17,20 @@ build-sim:
       - simulation/obj_dir/Vtb_hatch
       - simulation/build.log
 
-build-software:
+.build-software-template:
   stage: build
-
   script:
     - source ~/.bashrc
-    - cd software/hello; mkdir build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=../../riscv32.cmake; make
-
+    - cd software/${APP}; mkdir -p build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=../../riscv32.cmake; make
   artifacts:
     paths:
-      - software/hello/build/hello.{elf,dis,hex}
+      - software/${APP}/build/${APP}.{elf,dis,hex}
+
+build-software:
+  extends: .build-software-template
+  parallel:
+    matrix:
+      - APP: ["hello", "smoketest"]
 
 smoketest:
   stage: test
