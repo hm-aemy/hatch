@@ -58,8 +58,8 @@ module tb_hatch #(
         if ($value$plusargs("binary=%s", binary_path)) begin
             $display("Running program: %s", binary_path);
         end else begin
-            $display("No binary path provided. Running helloworld.");
-            binary_path = "../sw/bin/helloworld.hex";
+            $display("No binary path provided.");
+            $finish();
         end
     end
 
@@ -287,14 +287,20 @@ module tb_hatch #(
     // Wait for termination signal and get return code
     task automatic jtag_wait_for_eoc(output bit [31:0] exit_code);
         automatic dm::sbcs_t sbcs = dm::sbcs_t'{sbreadonaddr: 1'b1, sbaccess: 2, default: '0};
+        automatic int retry_count = 0;
         jtag_write(dm::SBCS, sbcs, 0, 1);
         jtag_write(dm::SBAddress1, '0);
         do begin
             jtag_write(dm::SBAddress0, CoreStatusAddr);
             jtag_dbg.wait_idle(20);
             jtag_dbg.read_dmi_exp_backoff(dm::SBData0, exit_code);
-        end while (exit_code == 0);
-        $display("@%t | [JTAG] Simulation finished: return code 0x%0h", $time, exit_code);
+            retry_count += 1;
+        end while ((exit_code == 0) && (retry_count < 2000));
+        if (exit_code == 0) begin
+            $fatal(1, "[JTAG] Timeout waiting for end of code execution!");
+        end else begin
+            $display("@%t | [JTAG] Simulation finished: return code 0x%0h", $time, exit_code);
+        end
         $finish();
     endtask
 
