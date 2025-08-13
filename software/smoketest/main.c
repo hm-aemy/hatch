@@ -45,7 +45,7 @@ int main() {
     // uart loopback
     uart_loopback_enable();
     printf("internal msg\n");
-    sleep_ms(20);
+    sleep_ms(2);
     for(uint8_t idx = 0; idx<15; idx++) {
         receive_buff[idx] = uart_read();
         if(receive_buff[idx] == '\n') {

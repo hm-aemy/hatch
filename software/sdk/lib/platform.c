@@ -3,9 +3,8 @@
 #include "print.h"
 #include "util.h"
 
-static void interrupt_handler() {
+__attribute__ ((interrupt ("machine"),aligned(256),section(".vectors"))) static void interrupt_handler() {
     // Handle the interrupt
-    asm volatile("mret");
 }
 
 void platform_init(void) {

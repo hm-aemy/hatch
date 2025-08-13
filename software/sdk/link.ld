@@ -21,10 +21,10 @@ SECTIONS
 
   .text._start : {
       *(.text._start)
+      *(.vectors)
   } >SRAM
 
   .misc : ALIGN(4) {
-      *(.vectors)
       *(.sdata)
       *(.sbss)
       *(.*data*)
