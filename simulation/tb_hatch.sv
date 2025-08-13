@@ -58,8 +58,8 @@ module tb_hatch #(
         if ($value$plusargs("binary=%s", binary_path)) begin
             $display("Running program: %s", binary_path);
         end else begin
-            $display("No binary path provided. Running helloworld.");
-            binary_path = "../sw/bin/helloworld.hex";
+            $display("No binary path provided.");
+            $finish();
         end
     end
 

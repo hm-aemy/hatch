@@ -5,7 +5,7 @@ image:
   name: ghcr.io/hm-aemy/iic-osic-tools:latest
   entrypoint: [""]
 
-build:
+build-sim:
   stage: build
 
   script:
@@ -16,6 +16,17 @@ build:
     paths:
       - simulation/obj_dir/Vtb_hatch
       - simulation/build.log
+
+build-software:
+  stage: build
+
+  script:
+    - source ~/.bashrc
+    - cd software/hello; mkdir build; cd build; cmake .. -DCMAKE_TOOLCHAIN_FILE=../../riscv32.cmake; make
+
+  artifacts:
+    paths:
+      - software/hello/build/hello.{elf,dis,hex}
 
 smoketest:
   stage: test
