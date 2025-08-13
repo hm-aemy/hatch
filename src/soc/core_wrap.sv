@@ -57,7 +57,7 @@ module core_wrap import croc_pkg::*; #() (
 
   cv32e40p_top #(
     .COREV_PULP       (0),
-    .COREV_CLUSTER    (1),
+    .COREV_CLUSTER    (0),
     .FPU              (0),
     .FPU_ADDMUL_LAT   (0),
     .FPU_OTHERS_LAT   (0),
