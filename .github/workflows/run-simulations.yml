@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   push:
 
+env:
+  HATCH_TOP: $GITHUB_WORKSPACE
+
 jobs:
   build-simulation:
     runs-on: ubuntu-24.04
