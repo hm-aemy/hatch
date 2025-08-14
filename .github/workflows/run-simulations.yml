@@ -23,10 +23,8 @@ jobs:
       - name: Lint
         # You may pin to the exact commit or the version.
         uses: workflow/nix-shell-action@v3.4.0
-        env:
-          HATCH_TOP: "${{env.GITHUB_WORKSPACE}}"
         with:
           flakes: github:fossi-foundation/nix-eda#verilator
           working-directory: simulation
-          script: verilator --lint-only -f hatch.vlt
+          script: HATCH_TOP=${{env.GITHUB_WORKSPACE}} verilator --lint-only -f hatch.vlt
 
