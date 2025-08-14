@@ -1,0 +1,22 @@
+name: run-simulations
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build-simulation:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Determinate Nix
+        uses: DeterminateSystems/determinate-nix-action@v3.5.2
+        with:
+          # Extra configuration lines for `/etc/nix/nix.conf` (includes `access-tokens` with `secrets.GITHUB_TOKEN` automatically if `github-token` is set)
+          extra-conf: |
+            extra-substituters = https://nix-cache.fossi-foundation.org
+            extra-trusted-public-keys = nix-cache.fossi-foundation.org:3+K59iFwXqKsL7BNu6Guy0v+uTlwsxYQxjspXzqLYQs=
+      - name: Verilator version
+        run: nix run github:fossi-foundation/nix-eda#verilator -- -version
