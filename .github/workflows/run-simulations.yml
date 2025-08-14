@@ -25,4 +25,4 @@ jobs:
         uses: workflow/nix-shell-action@v3.4.0
         with:
           flakes: github:fossi-foundation/nix-eda#verilator
-          script: verilator --lint-only simulation/hatch.vlt
+          script: verilator --lint-only -f simulation/hatch.vlt
