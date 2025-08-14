@@ -26,5 +26,7 @@ jobs:
         with:
           flakes: github:fossi-foundation/nix-eda#verilator
           working-directory: simulation
-          script: HATCH_TOP=${{env.GITHUB_WORKSPACE}} verilator --lint-only -f hatch.vlt
+          script: |
+            export HATCH_TOP=${{env.GITHUB_WORKSPACE}}
+            verilator --lint-only -f hatch.vlt
 
