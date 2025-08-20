@@ -10,13 +10,13 @@ add_global_connection -net {VSS} -pin_pattern {^VSSE$}
 add_global_connection -net {VDD} -pin_pattern {^vdd$} -power
 add_global_connection -net {VSS} -pin_pattern {^vss$} -ground
 
+# fix for bondpad/port naming
+add_global_connection -net {VDD} -inst_pattern {.*} -pin_pattern {.*vdd_RING} -power
+add_global_connection -net {VSS} -inst_pattern {.*} -pin_pattern {.*vss_RING} -ground
+
 # padframe io power pins
 add_global_connection -net {IOVDD} -pin_pattern {^iovdd$} -power
 add_global_connection -net {IOVSS} -pin_pattern {^iovss$} -ground
-
-# fix for bondpad/port naming
-add_global_connection -net {IOVDD} -inst_pattern {.*} -pin_pattern {.*vdd_RING} -power
-add_global_connection -net {IOVSS} -inst_pattern {.*} -pin_pattern {.*vss_RING} -ground
 
 # fix for bondpad/port naming
 add_global_connection -net {IOVDD} -inst_pattern {.*} -pin_pattern {.*iovdd_RING} -power
