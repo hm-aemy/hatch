@@ -30,4 +30,3 @@ jobs:
           flakes: github:fossi-foundation/nix-eda#verilator
           working-directory: simulation
           script: verilator --lint-only -f hatch.vlt
-
