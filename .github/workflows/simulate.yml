@@ -25,3 +25,23 @@ jobs:
           flakes: github:fossi-foundation/nix-eda#verilator
           working-directory: simulation
           script: HATCH_TOP=.. make build-verilator
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            simulation/obj_dir/Vtb_hatch
+            simulation/build.log
+      - name: Run smoketest
+        uses: workflow/nix-shell-action@v3.4.0
+        with:
+          flakes: github:fossi-foundation/nix-eda#verilator
+          working-directory: simulation
+          script: HATCH_TOP=.. make sim-verilator
+      - name: Upload smoketest artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoketest-artifacts
+          path: |
+            simulation/hatch.fst
+            simulation/sim.log
