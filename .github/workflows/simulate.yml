@@ -32,6 +32,8 @@ jobs:
           path: |
             simulation/obj_dir/Vtb_hatch
             simulation/build.log
+  run-smoketest:
+    steps:
       - name: Run smoketest
         uses: workflow/nix-shell-action@v3.4.0
         with:
