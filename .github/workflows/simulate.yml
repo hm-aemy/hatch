@@ -36,6 +36,10 @@ jobs:
     needs: build-simulator
     runs-on: ubuntu-24.04
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Not recursive, to avoid cloning the PDK
       - name: Download simulator
         uses: actions/download-artifact@v4
         with:
