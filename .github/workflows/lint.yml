@@ -4,15 +4,13 @@ on:
   push:
 
 jobs:
-  build-simulation:
+  lint:
     runs-on: ubuntu-24.04
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
         with:
           submodules: true # Not recursive, to avoid cloning the PDK
-      - name: Test
-        run: ls $HATCH_TOP
       - name: Install Determinate Nix
         uses: DeterminateSystems/determinate-nix-action@v3.5.2
         with:
