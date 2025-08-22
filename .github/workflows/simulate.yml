@@ -34,6 +34,7 @@ jobs:
             simulation/build.log
   run-smoketest:
     needs: build-simulator
+    runs-on: ubuntu-24.04
     steps:
       - name: Download simulator
         uses: actions/download-artifact@v4
