@@ -1,4 +1,4 @@
-name: run-simulations
+name: simulate
 on:
   workflow_dispatch:
   push:

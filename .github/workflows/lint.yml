@@ -1,5 +1,4 @@
-name: run-simulations
-on:
+name: lint
   workflow_dispatch:
   push:
 
