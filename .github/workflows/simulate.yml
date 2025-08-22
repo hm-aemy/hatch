@@ -45,6 +45,8 @@ jobs:
         with:
           name: build-artifacts
           path: simulation
+      - name: Make simulator executable
+        run: chmod +x simulation/obj_dir/Vtb_hatch
       - name: Install Determinate Nix
         uses: DeterminateSystems/determinate-nix-action@v3.5.2
         with:
