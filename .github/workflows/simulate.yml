@@ -40,6 +40,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
+      - name: Install Determinate Nix
+        uses: DeterminateSystems/determinate-nix-action@v3.5.2
+        with:
+          # Extra configuration lines for `/etc/nix/nix.conf` (includes `access-tokens` with `secrets.GITHUB_TOKEN` automatically if `github-token` is set)
+          extra-conf: |
+            extra-substituters = https://nix-cache.fossi-foundation.org
+            extra-trusted-public-keys = nix-cache.fossi-foundation.org:3+K59iFwXqKsL7BNu6Guy0v+uTlwsxYQxjspXzqLYQs=
       - name: Run smoketest
         uses: workflow/nix-shell-action@v3.4.0
         with:
