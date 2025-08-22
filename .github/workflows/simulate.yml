@@ -1,0 +1,67 @@
+name: simulate
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build-simulator:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Not recursive, to avoid cloning the PDK
+      - name: Install Determinate Nix
+        uses: DeterminateSystems/determinate-nix-action@v3.5.2
+        with:
+          # Extra configuration lines for `/etc/nix/nix.conf` (includes `access-tokens` with `secrets.GITHUB_TOKEN` automatically if `github-token` is set)
+          extra-conf: |
+            extra-substituters = https://nix-cache.fossi-foundation.org
+            extra-trusted-public-keys = nix-cache.fossi-foundation.org:3+K59iFwXqKsL7BNu6Guy0v+uTlwsxYQxjspXzqLYQs=
+      - name: Build simulator
+        # You may pin to the exact commit or the version.
+        uses: workflow/nix-shell-action@v3.4.0
+        with:
+          flakes: github:fossi-foundation/nix-eda#verilator
+          working-directory: simulation
+          script: HATCH_TOP=.. make build-verilator
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            simulation/obj_dir/Vtb_hatch
+            simulation/build.log
+  run-smoketest:
+    needs: build-simulator
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Not recursive, to avoid cloning the PDK
+      - name: Download simulator
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: simulation
+      - name: Install Determinate Nix
+        uses: DeterminateSystems/determinate-nix-action@v3.5.2
+        with:
+          # Extra configuration lines for `/etc/nix/nix.conf` (includes `access-tokens` with `secrets.GITHUB_TOKEN` automatically if `github-token` is set)
+          extra-conf: |
+            extra-substituters = https://nix-cache.fossi-foundation.org
+            extra-trusted-public-keys = nix-cache.fossi-foundation.org:3+K59iFwXqKsL7BNu6Guy0v+uTlwsxYQxjspXzqLYQs=
+      - name: Run smoketest
+        uses: workflow/nix-shell-action@v3.4.0
+        with:
+          flakes: github:fossi-foundation/nix-eda#verilator
+          working-directory: simulation
+          script: HATCH_TOP=.. make sim-verilator
+      - name: Upload smoketest artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoketest-artifacts
+          path: |
+            simulation/hatch.fst
+            simulation/sim.log
