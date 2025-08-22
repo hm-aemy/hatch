@@ -44,11 +44,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
-      - name: Where is it
-        run: |
-          ls -al simulation
-          ls -l simulation/obj_dir/Vtb_hatch
-          ls -l simulation/build.log
+          path: simulation
       - name: Install Determinate Nix
         uses: DeterminateSystems/determinate-nix-action@v3.5.2
         with:
