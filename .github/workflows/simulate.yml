@@ -33,7 +33,12 @@ jobs:
             simulation/obj_dir/Vtb_hatch
             simulation/build.log
   run-smoketest:
+    needs: build-simulator
     steps:
+      - name: Download simulator
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
       - name: Run smoketest
         uses: workflow/nix-shell-action@v3.4.0
         with:
