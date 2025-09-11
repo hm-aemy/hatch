@@ -1,0 +1,58 @@
+name: simulate
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  build-simulator:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Not recursive, to avoid cloning the PDK
+      - name: Export environment variables
+        run: |
+          echo "HATCH_TOP=$PWD/.." >> $GITHUB_ENV
+      - name: Build simulator
+        uses: fossi-foundation/verilator-action@v0.3
+        with:
+          working-directory: simulation
+          run: 'make build-verilator'
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            simulation/obj_dir/Vtb_hatch
+            simulation/build.log
+  run-smoketest:
+    needs: build-simulator
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Not recursive, to avoid cloning the PDK
+      - name: Download simulator
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+          path: simulation
+      - name: Make simulator executable
+        run: chmod +x simulation/obj_dir/Vtb_hatch
+      - name: Export environment variables
+        run: |
+          echo "HATCH_TOP=$PWD/.." >> $GITHUB_ENV
+      - name: Build simulator
+        uses: fossi-foundation/verilator-action@v0.3
+        with:
+          working-directory: simulation
+          run: 'make sim-verilator'
+      - name: Upload smoketest artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoketest-artifacts
+          path: |
+            simulation/hatch.fst
+            simulation/sim.log

@@ -1,0 +1,21 @@
+name: lint
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Not recursive, to avoid cloning the PDK
+      - name: Export environment variables
+        run: |
+          echo "HATCH_TOP=$PWD/.." >> $GITHUB_ENV
+      - name: Lint
+        uses: fossi-foundation/verilator-action@v0.3
+        with:
+          working-directory: simulation
+          lint-files: -f hatch.vlt
