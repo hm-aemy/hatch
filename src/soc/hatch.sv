@@ -60,6 +60,11 @@ mgr_obi_rsp_t user_mgr_obi_rsp;
 logic [NumExternalIrqs-1:0] interrupts;
 logic [GpioCount-1:0] gpio_in_sync;
 
+mgr_obi_req_t trace_obi_req;
+mgr_obi_rsp_t trace_obi_rsp;
+
+logic sram_impl; // soc_ctrl -> SRAM config signals
+
 croc_domain #(
   .GpioCount( GpioCount ) 
 ) i_croc (
@@ -90,8 +95,13 @@ croc_domain #(
   .user_mgr_obi_req_i  ( user_mgr_obi_req ),
   .user_mgr_obi_rsp_o  ( user_mgr_obi_rsp ),
 
+  .trace_obi_req_o  ( trace_obi_req ),
+  .trace_obi_rsp_i  ( trace_obi_rsp ),
+
   .interrupts_i ( interrupts  ),
-  .core_busy_o  ( status_o    )
+  .core_busy_o  ( status_o    ),
+
+  .sram_impl   ( sram_impl   )
 );
 
 user_domain #(
@@ -108,8 +118,13 @@ user_domain #(
   .user_mgr_obi_req_o ( user_mgr_obi_req ),
   .user_mgr_obi_rsp_i ( user_mgr_obi_rsp ),
 
+  .trace_obi_req_i ( trace_obi_req ),
+  .trace_obi_rsp_o ( trace_obi_rsp ),
+
   .gpio_in_sync_i ( gpio_in_sync ),
-  .interrupts_o   ( interrupts   )
+  .interrupts_o   ( interrupts   ),
+
+  .sram_impl ( sram_impl )
 );
 
 endmodule

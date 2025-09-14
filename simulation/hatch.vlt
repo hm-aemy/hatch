@@ -139,6 +139,7 @@ ${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_controller.sv
 ${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_obi_interface.sv
 ${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_prefetch_controller.sv
 ${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_sleep_unit.sv
+${HATCH_TOP}/src/cv32e40p/rtl/wasm_next_handler.v
 ${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_core.sv
 
 ${HATCH_TOP}/src/cv32e40p/rtl/cv32e40p_top.sv
@@ -184,16 +185,16 @@ ${HATCH_TOP}/src/croc/rtl/timer_unit/timer_unit.sv
 
 
 ${HATCH_TOP}/src/soc/croc_pkg.sv
-${HATCH_TOP}/src/croc/rtl/user_pkg.sv
+${HATCH_TOP}/src/soc/user_pkg.sv
 ${HATCH_TOP}/src/croc/rtl/soc_ctrl/soc_ctrl_reg_pkg.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio_reg_pkg.sv
 
-
+${HATCH_TOP}/src/soc/trace.sv
 ${HATCH_TOP}/src/soc/core_wrap.sv
 ${HATCH_TOP}/src/croc/rtl/soc_ctrl/soc_ctrl_reg_top.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio_reg_top.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio.sv
-${HATCH_TOP}/src/croc/rtl/croc_domain.sv
+${HATCH_TOP}/src/soc/croc_domain.sv
 ${HATCH_TOP}/src/soc/user_domain.sv
 ${HATCH_TOP}/src/soc/hatch.sv
 

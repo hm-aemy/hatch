@@ -39,14 +39,18 @@ module croc_domain import croc_pkg::*; #(
   input  mgr_obi_req_t user_mgr_obi_req_i,
   output mgr_obi_rsp_t user_mgr_obi_rsp_o,
 
+  output mgr_obi_req_t trace_obi_req_o,
+  input  mgr_obi_rsp_t trace_obi_rsp_i,
+
   input  logic [NumExternalIrqs-1:0] interrupts_i,
-  output logic core_busy_o
+  output logic core_busy_o,
+
+  output logic sram_impl // soc_ctrl -> SRAM config signals
 );
 
   // -----------------
   // Control Signals
   // -----------------
-  logic sram_impl; // soc_ctrl -> SRAM config signals
   logic debug_req;
   logic fetch_enable;
   logic [31:0] boot_addr;
@@ -89,6 +93,9 @@ module croc_domain import croc_pkg::*; #(
   mgr_obi_rsp_t dbg_req_obi_rsp;
   assign dbg_req_obi_req.a.aid = '0;
   assign dbg_req_obi_req.a.a_optional = '0;
+
+  assign trace_obi_req_o.a.aid = '0;
+  assign trace_obi_req_o.a.a_optional = '0;
 
   // ----------------------------------
   // Subordinate buses out of crossbar
@@ -203,6 +210,15 @@ module croc_domain import croc_pkg::*; #(
     .data_wdata_o     ( core_data_obi_req.a.wdata  ),
     .data_rdata_i     ( core_data_obi_rsp.r.rdata  ),
     .data_err_i       ( core_data_obi_rsp.r.err    ),
+
+    .trace_req_o       ( trace_obi_req_o.req      ),
+    .trace_gnt_i       ( trace_obi_rsp_i.gnt      ),
+    .trace_rvalid_i    ( trace_obi_rsp_i.rvalid   ),
+    .trace_we_o        ( trace_obi_req_o.a.we     ),
+    .trace_be_o        ( trace_obi_req_o.a.be     ),
+    .trace_addr_o      ( trace_obi_req_o.a.addr   ),
+    .trace_wdata_o     ( trace_obi_req_o.a.wdata  ),
+    .trace_rdata_i     ( trace_obi_rsp_i.r.rdata  ),
 
     .debug_req_i      ( debug_req    ),
     .fetch_enable_i   ( fetch_enable ),
@@ -369,7 +385,6 @@ module croc_domain import croc_pkg::*; #(
 
     assign bank_word_addr = bank_byte_addr[SbrObiCfg.AddrWidth-1:2];
 
-    /*
     tc_sram_impl #(
       .NumWords  ( SramBankNumWords ),
       .DataWidth ( 32 ),
@@ -390,7 +405,6 @@ module croc_domain import croc_pkg::*; #(
       .be_i    ( bank_be    ),
       .rdata_o ( bank_rdata )
     );
-    */
 
     assign bank_gnt = 1'b1;
   end
