@@ -197,6 +197,7 @@ ${HATCH_TOP}/src/croc/rtl/gpio/gpio.sv
 ${HATCH_TOP}/src/soc/croc_domain.sv
 ${HATCH_TOP}/src/soc/user_domain.sv
 ${HATCH_TOP}/src/soc/hatch.sv
+${HATCH_TOP}/src/trng/verilog/trng.sv
 
 ${HATCH_TOP}/src/cv32e40p/bhv/cv32e40p_sim_clock_gate.sv
 

@@ -70,6 +70,9 @@ module core_wrap import croc_pkg::*; #() (
   logic [31:0] csr_trace_addr;
   logic        csr_trace_addr_set;
 
+  logic trng_en;
+  logic trng_value;
+
   cv32e40p_top #(
     .COREV_PULP       (0),
     .COREV_CLUSTER    (0),
@@ -121,12 +124,14 @@ module core_wrap import croc_pkg::*; #() (
     .fetch_enable_i,
     .core_sleep_o (core_sleep),
 
-    .csr_trace_data           (csr_trace_data),
-    .csr_trace                (csr_trace),
-    .csr_trace_addr           (csr_trace_addr),
-    .csr_trace_addr_set       (csr_trace_addr_set)
-  );
+    .trng_en,
+    .trng_value,
 
+    .csr_trace_data,
+    .csr_trace,
+    .csr_trace_addr,
+    .csr_trace_addr_set
+  );
 
   trace u_trace (
       .clk_i          (clk_i),
@@ -144,6 +149,13 @@ module core_wrap import croc_pkg::*; #() (
       .trace_gnt_i  (trace_gnt_i),
       .trace_rvalid_i(trace_rvalid_i),
       .trace_rdata_i(trace_rdata_i)
+  );
+
+  trng i_trng (
+    .B       ( trng_en    ),
+    .Q       ( trng_value ), // last interrupt is TRNG
+    .CLK     ( clk_i      ),
+    .RESET_B ( rst_ni )
   );
 
 endmodule

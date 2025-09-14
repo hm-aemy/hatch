@@ -1,126 +1,89 @@
 #include <platform.h>
 #include <print.h>
 #include <timer.h>
-#include <stdlib.h>
 
-// Minimal memcpy for freestanding environment
-void *memcpy(void *dest, const void *src, unsigned int n) {
-    char *d = (char *)dest;
-    const char *s = (const char *)src;
-    for (unsigned int i = 0; i < n; i++)
-        d[i] = s[i];
-    return dest;
+void *handler_tbl[256] = {0};
+void *frame_ip;
+
+uint8_t wasm_mem[] = {0x00, 0x01, 0x02, 0x03};
+
+void handler0() {
+    printf("Handler 0 called\n");
 }
 
-// Minimal memset for freestanding environment
-void *memset(void *dest, int val, unsigned int n) {
-    char *d = (char *)dest;
-    for (unsigned int i = 0; i < n; i++)
-        d[i] = (char)val;
-    return dest;
+void handler1() {
+    printf("Handler 1 called\n");
 }
-//convert uint32_t to string
-static void uint2string(uint32_t value, char *buf, unsigned int size) {
-    if (size == 0) return;
 
-    char *p = buf;
-    unsigned int remaining = size;
-
-    if (value == 0) {
-        if (remaining > 1) { *p++ = '0'; *p = '\0'; }
-        return;
-    }
-
-    uint32_t powers[] = {1000000000,100000000,10000000,1000000,100000,10000,1000,100,10,1};
-    int started = 0;
-
-    for (int i = 0; i < 10 && remaining > 1; i++) {
-        int d = 0;
-        while (value >= powers[i]) { value -= powers[i]; d++; }
-        if (d > 0 || started) {
-            *p++ = '0' + d;
-            started = 1;
-            remaining--;
-        }
-    }
-
-    *p = '\0';
+void handler2() {
+    printf("Handler 2 called\n");
 }
-// Minimal printf: only prints a string
-static void my_printf(const char *s) {
-    while (*s) {
-        putchar(*s++);
-    }
+
+void handler3() {
+    printf("Handler 3 called\n");
 }
 
 int main(void) {
     platform_init();
-    printf("Start test arbiter\n");
+
+    #define CSR_TRNG_EN    0x7E0
+    #define CSR_TRNG_VALUE 0x7E1
+    asm volatile("csrw %0, %1" :: "i"(CSR_TRNG_EN), "r"(1)); // Enable TRNG
+    uint32_t trng_val;
+    for (int i = 0; i < 5; i++) {
+        asm volatile("csrr %0, %1" : "=r"(trng_val) : "i"(CSR_TRNG_VALUE));  
+        printf("TRNG Value: %x\n", trng_val);
+    }
+
+    #define CSR_TRACE_EN 0x7D0
+    #define CSR_TRACE    0x7D1
+    #define CSR_TRACE_ADDR 0x7D2
+
+    asm volatile("csrw %0, %1" :: "i"(CSR_TRACE_ADDR), "r"(0x20000000)); // Enable tracing
+
+    asm volatile("csrw %0, %1" :: "i"(CSR_TRACE_EN), "r"(1)); // Enable tracing
+    asm volatile("csrw %0, %1" :: "i"(CSR_TRACE), "r"(0xdeadbeef)); //Trace
+    asm volatile("csrw %0, %1" :: "i"(CSR_TRACE), "r"(0xbadcab1e)); //Trace
+
+    printf("Read back trace:\n");
+    printf(" 0x%x\n", *((uint32_t*)0x20000000));
+    printf(" 0x%x\n", *((uint32_t*)0x20000004));
+    printf(" 0x%x\n", *((uint32_t*)0x20000008));
+    printf(" 0x%x\n", *((uint32_t*)0x2000000c));
 
     #define CSR_INC      0x7C0
     #define CSR_FRAME_IP 0x7C1
+    #define CSR_HANDLER 0x7C2
+    #define CSR_HANDLER_TBL 0x7C4
     #define CSR_CONFIG   0x7C3
 
-    const int TEST_SIZE = 64;    
-    const int ITERATIONS = 2; 
-    const int frame_ip = 0x10000100; // Frame IP address
-
-    volatile uint32_t test_mem[TEST_SIZE];
-
-    // Initialize test memory
-    for (int i = 0; i < TEST_SIZE; i++) {
-        test_mem[i] =  i;
-    //     printf(" Initialize Iteration: ");
-    //     char buf[16];
-    //     uint2string(i, buf, sizeof(buf));
-    //     my_printf(buf);
-    //     printf("\n");
-    //     printf("test_mem:");
-    //     char mem_buf[16];
-    //     uint2string(test_mem[i], mem_buf, sizeof(mem_buf));
-    //     my_printf(mem_buf);
-    //     printf("\n");
-    }
-    sleep_ms(1);
-
+    printf("WASM Interpreter Test\n");
     // Configure accelerator
-    asm volatile("csrw %0, %1" :: "i"(CSR_FRAME_IP), "r"(frame_ip));  
-    asm volatile("csrw %0, %1" :: "i"(CSR_CONFIG), "r"(1));  
+    asm volatile("csrw %0, %1" :: "i"(CSR_HANDLER_TBL), "r"(handler_tbl));  
 
-    volatile uint32_t sum = 0;
+    printf("Handler table set\n");
+    uint32_t *test;
+    asm volatile("csrr %0, %1" : "=r"(test) : "i"(CSR_HANDLER_TBL));  
+    
+    printf("Handler table read back: %x\n", test);
 
-    for (int iter = 0; iter < ITERATIONS; iter++) {
-        uint32_t trigger_val = iter + 2;
+    frame_ip = &wasm_mem[0];
+    asm volatile("csrw %0, %1" :: "i"(CSR_FRAME_IP), "r"(frame_ip));
+    printf("Frame IP set to: %p\n", frame_ip);
 
-        // Trigger accelerator
-        asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(trigger_val));
+    asm volatile("csrw %0, %1" :: "i"(CSR_CONFIG), "r"(0));
 
-        // Simple memory access pattern
-        for (int i = 0; i < 16; i++) {
-            // printf("Iteration: ");
-            // char buf[16];
-            // uint2string(i, buf, sizeof(buf));
-            // my_printf(buf);
-            // printf("\n");
-            sum += test_mem[i];        // load
-            test_mem[i + 4] = trigger_val+i; // store
-            sum += test_mem[i + 2];    // load
-            sum += test_mem[i + 4];    // load
-            printf("Sum: ");
-            char sum_buf[16];
-            uint2string(sum, sum_buf, sizeof(sum_buf));
-            my_printf(sum_buf);
-            printf("\n");
+    asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(0));
 
-        }
+    printf("Starting execution\n");
 
-        // Shift memory region to avoid cache-like effects
-        //test_mem = (volatile uint32_t*)((((uint32_t)test_mem) + 32) & 0x00100FFC);
-    }
-
-    // Report results
-    printf("Arbiter test DONE\n");
     sleep_ms(1);
 
+    void* handler;
+    asm volatile("csrr %0, %1" : "=r"(handler) : "i"(CSR_HANDLER));
+
+    printf("Handler fetched: %x\n", handler);
+
+    sleep_ms(1);
     return 1; // normal termination
 }
