@@ -185,16 +185,16 @@ ${HATCH_TOP}/src/croc/rtl/timer_unit/timer_unit.sv
 
 
 ${HATCH_TOP}/src/soc/croc_pkg.sv
-${HATCH_TOP}/src/croc/rtl/user_pkg.sv
+${HATCH_TOP}/src/soc/user_pkg.sv
 ${HATCH_TOP}/src/croc/rtl/soc_ctrl/soc_ctrl_reg_pkg.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio_reg_pkg.sv
 
-
+${HATCH_TOP}/src/soc/trace.sv
 ${HATCH_TOP}/src/soc/core_wrap.sv
 ${HATCH_TOP}/src/croc/rtl/soc_ctrl/soc_ctrl_reg_top.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio_reg_top.sv
 ${HATCH_TOP}/src/croc/rtl/gpio/gpio.sv
-${HATCH_TOP}/src/croc/rtl/croc_domain.sv
+${HATCH_TOP}/src/soc/croc_domain.sv
 ${HATCH_TOP}/src/soc/user_domain.sv
 ${HATCH_TOP}/src/soc/hatch.sv
 

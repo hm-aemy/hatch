@@ -35,6 +35,16 @@ module core_wrap import croc_pkg::*; #() (
   input  logic [31:0] data_rdata_i,
   input  logic        data_err_i,
 
+  // Trace interface to memory
+  output logic        trace_req_o,
+  input  logic        trace_gnt_i,
+  input  logic        trace_rvalid_i,
+  output logic        trace_we_o,
+  output logic [ 3:0] trace_be_o,
+  output logic [31:0] trace_addr_o,
+  output logic [31:0] trace_wdata_o,
+  input  logic [31:0] trace_rdata_i,
+
   // Debug Interface
   input  logic        debug_req_i,
 
@@ -94,7 +104,7 @@ module core_wrap import croc_pkg::*; #() (
     .data_wdata_o,
     .data_rdata_i,
 
-    .irq_i    ({irq_fast_i, 4'b0, irq_external, 3'b0, timer0_irq_i, 3'b0, irq_software, 3'b0}),
+    .irq_i    ({5'b0, irq_external, 3'b0, timer0_irq_i, 3'b0, irq_software, 3'b0}),
     .irq_ack_o(),
     .irq_id_o (),
 
@@ -105,6 +115,25 @@ module core_wrap import croc_pkg::*; #() (
 
     .fetch_enable_i,
     .core_sleep_o (core_sleep)
+  );
+
+
+  trace u_trace (
+      .clk_i          (clk_i),
+      .rst_ni         (rst_ni),
+      .csr_trace_data (i_cv32e40p.core_i.cs_registers_i.csr_wdata_int),
+      .csr_trace      (i_cv32e40p.core_i.cs_registers_i.csr_trace),
+      .csr_trace_addr (i_cv32e40p.core_i.cs_registers_i.csr_wdata_int),
+      .csr_trace_addr_set (i_cv32e40p.core_i.cs_registers_i.csr_trace_addr),
+
+      .trace_addr_o (trace_addr_o),
+      .trace_we_o   (trace_we_o),
+      .trace_be_o   (trace_be_o),
+      .trace_req_o  (trace_req_o),
+      .trace_wdata_o(trace_wdata_o),
+      .trace_gnt_i  (trace_gnt_i),
+      .trace_rvalid_i(trace_rvalid_i),
+      .trace_rdata_i(trace_rdata_i)
   );
 
 endmodule
