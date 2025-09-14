@@ -6,4 +6,4 @@
 	url = ../cv32e40p
 [submodule "src/trng"]
 	path = src/trng
-	url = https://gitlab.lrz.de/aemy/chips/trng.git
+	url = ../trng.git
