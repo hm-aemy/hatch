@@ -10,7 +10,7 @@ VERILATOR_ARGS += --x-assign fast --x-initial fast
 VERILATOR_CFLAGS += -O3 -march=native -mtune=native
 
 build-verilator:
-	HATCH_TOP=$(HATCH_TOP) verilator $(VERILATOR_ARGS) -O3 --top tb_hatch -f hatch.vlt 2>&1 | tee build.log
+	HATCH_TOP=$(HATCH_TOP) verilator $(VERILATOR_ARGS) -O3 --top tb_hatch -f hatch.vlt waiver.vlt --waiver-output waiver-out.vlt 2>&1 | tee build.log
 
 SW_HEX ?= sw/smoketest.hex
 
