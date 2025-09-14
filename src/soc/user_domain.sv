@@ -49,8 +49,20 @@ module user_domain import user_pkg::*; import croc_pkg::*; #(
   mgr_obi_req_t [1:0] all_obi_req;
   mgr_obi_rsp_t [1:0] all_obi_rsp;
 
-  assign all_obi_req[0] = user_sbr_obi_req_i; // User Sbr
-  assign user_sbr_obi_rsp_o = all_obi_rsp[0];
+  assign all_obi_req[0].req = user_sbr_obi_req_i.req; // User Sbr
+  assign all_obi_req[0].a.addr = user_sbr_obi_req_i.a.addr;
+  assign all_obi_req[0].a.we = user_sbr_obi_req_i.a.we;
+  assign all_obi_req[0].a.be = user_sbr_obi_req_i.a.be;
+  assign all_obi_req[0].a.wdata = user_sbr_obi_req_i.a.wdata;
+  assign all_obi_req[0].a.aid = user_sbr_obi_req_i.a.aid;
+  assign all_obi_req[0].a.a_optional = user_sbr_obi_req_i.a.a_optional;
+  assign user_sbr_obi_rsp_o.gnt = all_obi_rsp[0].gnt;
+  assign user_sbr_obi_rsp_o.rvalid = all_obi_rsp[0].rvalid;
+  assign user_sbr_obi_rsp_o.r.rdata = all_obi_rsp[0].r.rdata;
+  assign user_sbr_obi_rsp_o.r.rid = all_obi_rsp[0].r.rid;
+  assign user_sbr_obi_rsp_o.r.err = all_obi_rsp[0].r.err;
+  assign user_sbr_obi_rsp_o.r.r_optional = all_obi_rsp[0].r.r_optional;
+  
   assign all_obi_req[1] = trace_obi_req_i;    // Trace Sbr
   assign trace_obi_rsp_o = all_obi_rsp[1];
 
