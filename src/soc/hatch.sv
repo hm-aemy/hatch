@@ -29,6 +29,12 @@ module hatch import croc_pkg::*; #(
   output logic [GpioCount-1:0] gpio_out_en_o // Output enable signal; 0 -> input, 1 -> output
 );
 
+  (*keep*)
+  trng trng_i(
+    .CLK(clk_i),
+    .RESET_B(rst_ni)
+  );
+
   logic synced_rst_n, synced_fetch_en;
 
   rstgen i_rstgen (

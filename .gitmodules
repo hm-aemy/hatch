@@ -4,3 +4,6 @@
 [submodule "src/cv32e40p"]
 	path = src/cv32e40p
 	url = ../cv32e40p
+[submodule "src/trng"]
+	path = src/trng
+	url = ../trng
