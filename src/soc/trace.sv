@@ -52,6 +52,9 @@ module trace(
             end
             missed_q <= missed_n;
         end
+    end
+
+    always_ff @(posedge clk_i) begin
         data_q  <= data_n;
         timestamp_q <= timestamp_n;
     end
