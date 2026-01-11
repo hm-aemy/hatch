@@ -519,14 +519,14 @@ module tb_hatch #(
         end 
         else if (rst_n && fetch_en_i) begin
       
-            if (pc_id == 32'h10000da0) begin
+            if (pc_id == 32'h100006b8) begin
                 pc_trace_enable <= 1'b1;
-                $display("@%t | [CORE] Reached target instruction at 0x10000da0!", $time);
+                $display("@%t | [CORE] Reached target instruction at 0x100006b8!", $time);
             end
-            if (pc_id ==32'h100006c4 && pc_ex == 32'h10000dc8) begin
-                pc_trace_enable <= 1'b0;
-                $display("@%t | [CORE] Reached target instruction at ID:0x100006c4 EX:0x10000dc8, disabling PC trace!", $time);
-            end
+            // if (pc_id ==32'h100006c4 && pc_ex == 32'h10000dc8) begin
+            //     pc_trace_enable <= 1'b0;
+            //     $display("@%t | [CORE] Reached target instruction at ID:0x100006c4 EX:0x10000dc8, disabling PC trace!", $time);
+            // end
        
             if (pc_trace_enable) begin
                 $display("@%t | [CORE] PC_IF: 0x%h, PC_ID: 0x%h, PC_EX: 0x%h",
