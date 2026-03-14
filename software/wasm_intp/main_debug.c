@@ -1,137 +1,134 @@
-//  test whether the bug causing uart stucked at loop related to interface between core and accelerator
-//  data request or not
+// Simple WASM interpreter test using labels (WAMR-style)
+// Tests wasm_jump instruction with hardware accelerator
 
 #include <platform.h>
 #include <print.h>
-#include <timer.h>
 #include <uart.h>
+#include <timer.h>
 
 #define CSR_HANDLER_TBL 0x7C4
 #define CSR_FRAME_IP    0x7C1 
 #define CSR_CONFIG      0x7C3
 #define CSR_INC         0x7C0
-#define CSR_ACC_BUSY    0x7C5
 #define CSR_HANDLER     0x7C2
-#define WASM_JUMP_INST 0x0000007b
 
-void *frame_ip;
 
-// Interpreter Fast mode wasm_memory
-uint8_t wasm_mem[128]; 
-int offset = 0; 
+uint8_t wasm_mem[128];
 
-void handler0() {
-    printf("Handler 0 called\n");
-    uint32_t inc = 4;
-    asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(inc));
-    // Set ra to return address after wasm_jump so handler1 can return here
-    asm volatile(
-        "auipc ra, 0\n"           // ra = PC
-        "addi ra, ra, 12\n"       // ra = PC + 12 (points to instruction after wasm_jump)
-        ".word 0x0000007b\n"      // wasm_jump to handler1 (4 bytes)
-        ::: "ra"
-    );
-    // handler1 will return here (after the wasm_jump instruction)
+void simple_interpreter(void) {
+
+    static  void *handler_table[] = {&&handler0, &&handler1, &&handler2};
+    
+    uint32_t handler0_addr = (uint32_t)handler_table[0];
+    uint32_t handler1_addr = (uint32_t)handler_table[1];
+    uint32_t handler2_addr = (uint32_t)handler_table[2];
+    
+    printf("handler0 label address: %x\n", handler0_addr);
+    printf("handler1 label address: %x\n", handler1_addr);
+    printf("handler2 label address: %x\n", handler2_addr);
+    
+    int offset = 0;
+    
+    // Handler 0 address
+    wasm_mem[offset++] = (uint8_t)(handler0_addr);
+    wasm_mem[offset++] = (uint8_t)(handler0_addr >> 8);
+    wasm_mem[offset++] = (uint8_t)(handler0_addr >> 16);
+    wasm_mem[offset++] = (uint8_t)(handler0_addr >> 24);
+    // Handler 0 metadata
+    wasm_mem[offset++] = 0x01;  
+    wasm_mem[offset++] = 0x02;
+    wasm_mem[offset++] = 0x03;
+    wasm_mem[offset++] = 0x04;
+    
+    // Handler 1 address  
+    wasm_mem[offset++] = (uint8_t)(handler1_addr);
+    wasm_mem[offset++] = (uint8_t)(handler1_addr >> 8);
+    wasm_mem[offset++] = (uint8_t)(handler1_addr >> 16);
+    wasm_mem[offset++] = (uint8_t)(handler1_addr >> 24);
+    // Handler 1 metadata
+    wasm_mem[offset++] = 0x05;
+    wasm_mem[offset++] = 0x06;
+    wasm_mem[offset++] = 0x07;
+    wasm_mem[offset++] = 0x08;
+    wasm_mem[offset++] = 0x07;
+    wasm_mem[offset++] = 0x08;
+    
+    // Handler 2 address
+    wasm_mem[offset++] = (uint8_t)(handler2_addr);
+    wasm_mem[offset++] = (uint8_t)(handler2_addr >> 8);
+    wasm_mem[offset++] = (uint8_t)(handler2_addr >> 16);
+    wasm_mem[offset++] = (uint8_t)(handler2_addr >> 24);
+    
+    printf("wasm_mem setup complete, %x bytes\n", offset);
+    
+    uint32_t wasm_mem_addr = (uint32_t)wasm_mem;
+    asm volatile("csrw %0, %1" :: "i"(CSR_HANDLER_TBL), "r"(wasm_mem_addr));
+    printf("Handler table set to %x\n", wasm_mem_addr);
+    
+    // Set Frame IP 
+    uint32_t frame_ip = wasm_mem_addr + 4;
+    asm volatile("csrw %0, %1" :: "i"(CSR_FRAME_IP), "r"(frame_ip));
+    printf("Frame IP set to %x\n", frame_ip);
+    
+    uint32_t config = 0x1;  // Enable fast mode
+    asm volatile("csrw %0, %1" :: "i"(CSR_CONFIG), "r"(config));
+    printf("Accelerator enabled (CSR_CONFIG = %x)\n", config);
+    
+    // Jump to first handler 
+    goto *handler_table[0];
+    
+    
+handler0:
+    {
+       
+        int a = 5, b = 10;
+        int sum = a + b;
+        printf("Handler 0 executed: %x + %x = %x\n", a, b, sum);
+        
+        asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(4));
+        asm volatile(".word 0x0000007b");  // wasm_jump
+        __builtin_unreachable();
+    }
+    
+handler1:
+    {
+       
+        printf("Handler 1 executed: no math, just jumping\n");
+        
+        asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(6));
+        asm volatile(".word 0x0000007b");  // wasm_jump
+        __builtin_unreachable();
+    }
+    
+handler2:
+    {
+       
+        int x = 20, y = 7;
+        int diff = x - y;
+        printf("Handler 2 executed: %x - %x = %x\n", x, y, diff);
+        printf("Interpreter dispatch complete - all handlers executed!\n");
+        return;
+    }
+    
+exit_error:
+    printf("ERROR: Unexpected control flow!\n");
 }
-
-void handler1() {
-    printf("Handler 1 called\n");
-    asm volatile("nop");  // Prevent tail call optimization
-}
-
-void handler2() {
-    printf("Handler 2 called\n");
-}
-
-void handler3() {
-    printf("Handler 3 called\n");
-}
-void *handler_tbl[256] = {
-    [0] = handler0,
-    [1] = handler1,
-    [2] = handler2,
-    [3] = handler3,
-};
 
 int main(void) {
     platform_init();
-    // Setup WASM memory and handlers as before...
-    uint32_t addr0 = (uint32_t)handler0;
-    wasm_mem[offset++] = (uint8_t ) addr0;
-    wasm_mem[offset++] = (uint8_t )((addr0 >> 8) & 0xFF);
-    wasm_mem[offset++] = (uint8_t )((addr0 >> 16) & 0xFF);
-    wasm_mem[offset++] = (uint8_t )((addr0 >> 24) & 0xFF);
-    wasm_mem[offset++] = 0x02;
-    wasm_mem[offset++] = 0x03;
-    wasm_mem[offset++] = 0xFB;
-    wasm_mem[offset++] = 0xAC;
     
-    // Continue with handler setup...
-    uint32_t addr1 = (uint32_t)handler1;
-    wasm_mem[offset++] = (uint8_t ) addr1;
-    wasm_mem[offset++] = (uint8_t )((addr1 >> 8) & 0xFF);
-    wasm_mem[offset++] = (uint8_t )((addr1 >> 16) & 0xFF);
-    wasm_mem[offset++] = (uint8_t )((addr1 >> 24) & 0xFF);
-    wasm_mem[offset++] = 0x05;
-    wasm_mem[offset++] = 0xFF;
-    wasm_mem[offset++] = 0x02;
-    wasm_mem[offset++] = 0x35;
+    printf("=== WASM Interpreter Test (Label-based) ===\n");
+    printf("Testing wasm_jump with hardware accelerator\n\n");
     
-    // [Setup continues...]
+    // Run the interpreter
+    simple_interpreter();
     
-    handler_tbl[0] = handler0;
-    handler_tbl[1] = handler1; 
-    handler_tbl[2] = handler2;
-    handler_tbl[3] = handler3;
+    printf("\n=== Test PASSED ===\n");
+    printf("Returned to main successfully!\n");
+    printf("Finish!\n");
 
 
-
-    printf("handler_tbl[0] = %x\n", handler_tbl[0]);
-    printf("handler_tbl[1] = %x\n", handler_tbl[1]);
-    printf("handler_tbl[2] = %x\n", handler_tbl[2]);
-    printf("handler_tbl[3] = %x\n", handler_tbl[3]);
-
-    printf("WASM Memory has %x bytes\n", offset);  
-    for (int i = 0; i < 32 && i < offset; i++) {
-        printf("%x ", wasm_mem[i]);
-    }
-    printf(" address of wasm_mem: %x\n", wasm_mem);
-    asm volatile("csrw %0, %1" :: "i"(CSR_HANDLER_TBL), "r"(handler_tbl));  
-
-    printf("Handler table set\n");
-    uint32_t *test;
-    asm volatile("csrr %0, %1" : "=r"(test) : "i"(CSR_HANDLER_TBL));  
-    
-
-    frame_ip = wasm_mem +4;
-    printf("Frame IP set to %x\n", frame_ip);
-
-
-    uint32_t *hand_tbl;
-    asm volatile ("csrr %0, %1" : "=r"(hand_tbl) : "i"(CSR_HANDLER_TBL));
-    // printf ("Handler table read back: %x\n",hand_tbl);
-    
-    asm volatile("csrw %0, %1" :: "i"(CSR_FRAME_IP), "r"(frame_ip));
-    uint32_t config = 0x1;
-    asm volatile("csrw %0, %1" :: "i"(CSR_CONFIG), "r"(config));
-    // printf ("Write on custom csrs are completed!!");
-    uint32_t inc = 4;
-    
-
-    
-    // asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(inc));  // TRIGGER ACCELERATOR
-    handler0();
-    // asm volatile (".word 0x0000007b"); // WASM JUMP INSTRUCTION
-
-    // handler1();
-    // handler2();
-    // handler3();
-    
-
-    printf ("Finish");
-
+    sleep_ms(1);
     return 1;
-
-
-
 }
+
