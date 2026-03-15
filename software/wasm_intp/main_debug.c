@@ -1,5 +1,15 @@
-// Simple WASM interpreter test using labels (WAMR-style)
+// Simple WASM interpreter test using labels (WAMR classic mode)
 // Tests wasm_jump instruction with hardware accelerator
+//
+// Memory layout (WAMR-style):
+//   handler_table[] - opcode → handler address mapping 
+//   wasm_mem[]      - bytecode containing opcodes and meta datas
+//
+// Operation:
+//   1. Read opcode from frame_ip: opcode = mem[frame_ip]
+//   2. Lookup handler: handler_addr = handler_table[opcode]
+//   3. Jump to handler: goto *handler_addr
+//   4. Handler increments frame_ip and jumps to next
 
 #include <platform.h>
 #include <print.h>
@@ -13,100 +23,98 @@
 #define CSR_HANDLER     0x7C2
 
 
+// Handler table: maps opcode → handler address
+uint32_t handler_table_data[16];
+
+// WASM bytecode memory: contains opcodes and metadata 
 uint8_t wasm_mem[128];
 
 void simple_interpreter(void) {
 
-    static  void *handler_table[] = {&&handler0, &&handler1, &&handler2};
+    handler_table_data[0] = (uint32_t)&&handler0;  // opcode 0
+    handler_table_data[1] = (uint32_t)&&handler1;  // opcode 1
+    handler_table_data[2] = (uint32_t)&&handler2;  // opcode 2
     
-    uint32_t handler0_addr = (uint32_t)handler_table[0];
-    uint32_t handler1_addr = (uint32_t)handler_table[1];
-    uint32_t handler2_addr = (uint32_t)handler_table[2];
+    printf("Handler table (opcode -> address):\n");
+    printf("  [0] -> %x (handler0)\n", handler_table_data[0]);
+    printf("  [1] -> %x (handler1)\n", handler_table_data[1]);
+    printf("  [2] -> %x (handler2)\n", handler_table_data[2]);
     
-    printf("handler0 label address: %x\n", handler0_addr);
-    printf("handler1 label address: %x\n", handler1_addr);
-    printf("handler2 label address: %x\n", handler2_addr);
-    
+
     int offset = 0;
+    wasm_mem[offset++] = 0;  // opcode for handler0
+    wasm_mem[offset++] = 0xa0;  //meta data for handler0
+    wasm_mem[offset++] = 0xa2;
+    wasm_mem[offset++] = 0xa3;
+    wasm_mem[offset++] = 0xa4;
+    wasm_mem[offset++] = 1;  // opcode for handler1  
+    wasm_mem[offset++] = 0xb0;  //meta data for handler1
+    wasm_mem[offset++] = 0xb1;
+    wasm_mem[offset++] = 0xb2;
+    wasm_mem[offset++] = 0xb3;
+    wasm_mem[offset++] = 0xb4;
+    wasm_mem[offset++] = 0xb5;
+    wasm_mem[offset++] = 2;  // opcode for handler2
+    wasm_mem[offset++] = 0xFF; // end marker
     
-    // Handler 0 address
-    wasm_mem[offset++] = (uint8_t)(handler0_addr);
-    wasm_mem[offset++] = (uint8_t)(handler0_addr >> 8);
-    wasm_mem[offset++] = (uint8_t)(handler0_addr >> 16);
-    wasm_mem[offset++] = (uint8_t)(handler0_addr >> 24);
-    // Handler 0 metadata
-    wasm_mem[offset++] = 0x01;  
-    wasm_mem[offset++] = 0x02;
-    wasm_mem[offset++] = 0x03;
-    wasm_mem[offset++] = 0x04;
+    printf("Bytecode (opcodes): [");
+    for (int i = 0; i < offset; i++) {
+        printf("%x", wasm_mem[i]);
+  
+    }
+    printf("]\n\n");
     
-    // Handler 1 address  
-    wasm_mem[offset++] = (uint8_t)(handler1_addr);
-    wasm_mem[offset++] = (uint8_t)(handler1_addr >> 8);
-    wasm_mem[offset++] = (uint8_t)(handler1_addr >> 16);
-    wasm_mem[offset++] = (uint8_t)(handler1_addr >> 24);
-    // Handler 1 metadata
-    wasm_mem[offset++] = 0x05;
-    wasm_mem[offset++] = 0x06;
-    wasm_mem[offset++] = 0x07;
-    wasm_mem[offset++] = 0x08;
-    wasm_mem[offset++] = 0x07;
-    wasm_mem[offset++] = 0x08;
+
+    uint32_t handler_tbl_addr = (uint32_t)handler_table_data;
+    asm volatile("csrw %0, %1" :: "i"(CSR_HANDLER_TBL), "r"(handler_tbl_addr));
+    printf("CSR_HANDLER_TBL = %x\n", handler_tbl_addr);
     
-    // Handler 2 address
-    wasm_mem[offset++] = (uint8_t)(handler2_addr);
-    wasm_mem[offset++] = (uint8_t)(handler2_addr >> 8);
-    wasm_mem[offset++] = (uint8_t)(handler2_addr >> 16);
-    wasm_mem[offset++] = (uint8_t)(handler2_addr >> 24);
-    
-    printf("wasm_mem setup complete, %x bytes\n", offset);
-    
-    uint32_t wasm_mem_addr = (uint32_t)wasm_mem;
-    asm volatile("csrw %0, %1" :: "i"(CSR_HANDLER_TBL), "r"(wasm_mem_addr));
-    printf("Handler table set to %x\n", wasm_mem_addr);
-    
-    // Set Frame IP 
-    uint32_t frame_ip = wasm_mem_addr + 4;
+  
+    uint32_t frame_ip = (uint32_t)wasm_mem +1;
     asm volatile("csrw %0, %1" :: "i"(CSR_FRAME_IP), "r"(frame_ip));
-    printf("Frame IP set to %x\n", frame_ip);
+    printf("CSR_FRAME_IP = %x\n", frame_ip);
     
-    uint32_t config = 0x1;  // Enable fast mode
+    uint32_t config = 0x0;
     asm volatile("csrw %0, %1" :: "i"(CSR_CONFIG), "r"(config));
-    printf("Accelerator enabled (CSR_CONFIG = %x)\n", config);
+    printf("CSR_CONFIG = %x\n\n", config);
     
-    // Jump to first handler 
-    goto *handler_table[0];
+    // Jump to first handler using table lookup
+    goto *((void*)handler_table_data[0]);
     
     
 handler0:
     {
-       
+        // Opcode 0 handler: simple addition
         int a = 5, b = 10;
         int sum = a + b;
-        printf("Handler 0 executed: %x + %x = %x\n", a, b, sum);
+        printf("Handler 0 (opcode 0): %x + %x = %x\n", a, b, sum);
         
-        asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(4));
+        // Advance frame_ip by 1 byte to next opcode
+        uint32_t inc = 4; 
+        asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(inc));
         asm volatile(".word 0x0000007b");  // wasm_jump
         __builtin_unreachable();
     }
     
 handler1:
     {
-       
-        printf("Handler 1 executed: no math, just jumping\n");
+        // Opcode 1 handler: just print
+        printf("Handler 1 (opcode 1): no math, just jumping\n");
         
-        asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(6));
+        // Advance frame_ip by 1 byte to next opcode
+        uint32_t inc = 6;
+        asm volatile("csrw %0, %1" :: "i"(CSR_INC), "r"(inc));
         asm volatile(".word 0x0000007b");  // wasm_jump
         __builtin_unreachable();
     }
     
 handler2:
     {
-       
+        // Opcode 2 handler: subtraction
         int x = 20, y = 7;
         int diff = x - y;
-        printf("Handler 2 executed: %x - %x = %x\n", x, y, diff);
-        printf("Interpreter dispatch complete - all handlers executed!\n");
+        printf("Handler 2 (opcode 2): %x - %x = %x\n", x, y, diff);
+        printf("\nInterpreter dispatch complete - all handlers executed!\n");
         return;
     }
     
