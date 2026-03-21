@@ -1,0 +1,782 @@
+%Warning-REDEFMACRO: Redefining existing define: 'VERILATOR', with different value: ''
+                     ... Location of previous definition, with value: '1'
+                     ... For warning description see https://verilator.org/warn/REDEFMACRO?v=5.032
+                     ... Use "/* verilator lint_off REDEFMACRO */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_verification/clk_rst_gen.sv:12:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   12 | module clk_rst_gen #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_sram.sv:56:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   56 | module tc_sram #(
+      |        ^~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_sram_impl.sv:27:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   27 | module tc_sram_impl #(
+      |        ^~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_clk.sv:11:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   11 | module tc_clk_and2 (
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_clk.sv:21:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   21 | module tc_clk_buffer (
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_clk.sv:31:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   31 | module tc_clk_gating #(
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_clk.sv:55:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   55 | module tc_clk_inverter (
+      |        ^~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_clk.sv:74:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   74 | module tc_clk_mux2 (
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_clk.sv:85:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   85 | module tc_clk_xor2 (
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_clk.sv:95:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   95 | module tc_clk_or2 (
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/tech_cells_generic/tc_clk.sv:106:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  106 | module tc_clk_delay #(
+      |        ^~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/binary_to_gray.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module binary_to_gray #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cb_filter_pkg.sv:14:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   14 | package cb_filter_pkg;
+      |         ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cc_onehot.sv:18:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   18 | module cc_onehot #(
+      |        ^~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_reset_ctrlr_pkg.sv:18:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   18 | package cdc_reset_ctrlr_pkg;
+      |         ^~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cf_math_pkg.sv:18:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   18 | package cf_math_pkg;
+      |         ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/clk_int_div.sv:70:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   70 | module clk_int_div #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/credit_counter.sv:11:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   11 | module credit_counter #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/delta_counter.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module delta_counter #(
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/ecc_pkg.sv:15:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | package ecc_pkg;
+      |         ^~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/edge_propagator_tx.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module edge_propagator_tx (
+      |        ^~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/exp_backoff.sv:25:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   25 | module exp_backoff #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/fifo_v3.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module fifo_v3 #(
+      |        ^~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/gray_to_binary.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module gray_to_binary #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/isochronous_4phase_handshake.sv:44:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   44 | module isochronous_4phase_handshake (
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/isochronous_spill_register.sv:41:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   41 | module isochronous_spill_register #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/lfsr.sv:24:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   24 | module lfsr #(
+      |        ^~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/lfsr_16bit.sv:23:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   23 | module lfsr_16bit #(
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/lfsr_8bit.sv:19:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   19 | module lfsr_8bit #(
+      |        ^~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/lossy_valid_to_stream.sv:49:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   49 | module lossy_valid_to_stream #(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/mv_filter.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module mv_filter #(
+      |        ^~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/onehot_to_bin.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module onehot_to_bin #(
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/plru_tree.sv:19:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   19 | module plru_tree #(
+      |        ^~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/passthrough_stream_fifo.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module passthrough_stream_fifo #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/popcount.sv:22:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   22 | module popcount #(
+      |        ^~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/rr_arb_tree.sv:49:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   49 | module rr_arb_tree #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/rstgen_bypass.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module rstgen_bypass #(
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/serial_deglitch.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module serial_deglitch #(
+      |        ^~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/shift_reg.sv:16:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   16 | module shift_reg #(
+      |        ^~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/shift_reg_gated.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module shift_reg_gated #(
+      |        ^~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/spill_register_flushable.sv:18:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   18 | module spill_register_flushable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_demux.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module stream_demux #(
+      |        ^~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_filter.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module stream_filter (
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_fork.sv:21:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   21 | module stream_fork #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_join_dynamic.sv:20:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   20 | module stream_join_dynamic #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_mux.sv:16:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   16 | module stream_mux #(
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_throttle.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module stream_throttle #(
+      |        ^~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/sub_per_hash.sv:39:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   39 | module sub_per_hash #(
+      |        ^~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/sync.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module sync #(
+      |        ^~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/sync_wedge.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module sync_wedge #(
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/unread.sv:16:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   16 | module unread (
+      |        ^~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/read.sv:10:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   10 | module read #(
+      |        ^~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/addr_decode_dync.sv:40:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   40 | module addr_decode_dync #(
+      |        ^~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_2phase.sv:43:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   43 | module cdc_2phase #(
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_2phase.sv:92:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   92 | module cdc_2phase_src #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_2phase.sv:142:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  142 | module cdc_2phase_dst #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_4phase.sv:36:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   36 | module cdc_4phase #(
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_4phase.sv:92:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   92 | module cdc_4phase_src #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_4phase.sv:205:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  205 | module cdc_4phase_dst #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/clk_int_div_static.sv:60:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   60 | module clk_int_div_static #(
+      |        ^~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/addr_decode.sv:35:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   35 | module addr_decode #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/addr_decode_napot.sv:17:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   17 | module addr_decode_napot #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/multiaddr_decode.sv:32:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   32 | module multiaddr_decode #(
+      |        ^~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cb_filter.sv:45:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   45 | module cb_filter #(
+      |        ^~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cb_filter.sv:203:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  203 | module hash_block #(
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_fifo_2phase.sv:47:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   47 | module cdc_fifo_2phase #(
+      |        ^~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/clk_mux_glitch_free.sv:73:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   73 | module clk_mux_glitch_free #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/clk_mux_glitch_free.sv:256:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  256 | module clk_or_tree #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/counter.sv:14:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   14 | module counter #(
+      |        ^~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/ecc_decode.sv:29:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   29 | module ecc_decode import ecc_pkg::*; #(
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/ecc_encode.sv:22:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   22 | module ecc_encode import ecc_pkg::*; #(
+      |        ^~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/edge_detect.sv:14:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   14 | module edge_detect (
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/lzc.sv:17:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   17 | module lzc #(
+      |        ^~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/max_counter.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module max_counter #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/rstgen.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module rstgen (
+      |        ^~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/spill_register.sv:17:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   17 | module spill_register #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_delay.sv:14:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   14 | module stream_delay #(
+      |        ^~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_fifo.sv:13:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   13 | module stream_fifo #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_fork_dynamic.sv:24:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   24 | module stream_fork_dynamic #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_join.sv:17:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   17 | module stream_join #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_reset_ctrlr.sv:109:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  109 | module cdc_reset_ctrlr
+      |        ^~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_reset_ctrlr.sv:187:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  187 | module cdc_reset_ctrlr_half
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_fifo_gray.sv:103:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  103 | module cdc_fifo_gray #(
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_fifo_gray.sv:171:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  171 | module cdc_fifo_gray_src #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_fifo_gray.sv:229:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  229 | module cdc_fifo_gray_dst #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/fall_through_register.sv:16:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   16 | module fall_through_register #(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/id_queue.sv:50:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   50 | module id_queue #(
+      |        ^~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_to_mem.sv:19:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   19 | module stream_to_mem #(
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_arbiter_flushable.sv:16:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   16 | module stream_arbiter_flushable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_fifo_optimal_wrap.sv:10:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   10 | module stream_fifo_optimal_wrap #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_register.sv:16:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   16 | module stream_register #(
+      |        ^~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_xbar.sv:18:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   18 | module stream_xbar #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_fifo_gray_clearable.sv:103:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  103 | module cdc_fifo_gray_clearable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_fifo_gray_clearable.sv:268:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  268 | module cdc_fifo_gray_src_clearable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_fifo_gray_clearable.sv:327:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  327 | module cdc_fifo_gray_dst_clearable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_2phase_clearable.sv:54:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   54 | module cdc_2phase_clearable #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_2phase_clearable.sv:199:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  199 | module cdc_2phase_src_clearable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/cdc_2phase_clearable.sv:269:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  269 | module cdc_2phase_dst_clearable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/mem_to_banks_detailed.sv:17:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   17 | module mem_to_banks_detailed #(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_arbiter.sv:16:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   16 | module stream_arbiter #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/stream_omega_net.sv:20:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   20 | module stream_omega_net #(
+      |        ^~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/common_cells/mem_to_banks.sv:15:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | module mem_to_banks #(
+      |        ^~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/apb/apb_pkg.sv:15:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   15 | package apb_pkg;
+      |         ^~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_pkg.sv:7:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    7 | package obi_pkg;
+      |         ^~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_rready_converter.sv:7:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    7 | module obi_rready_converter #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_atop_resolver.sv:12:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   12 | module obi_atop_resolver
+      |        ^~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_atop_resolver.sv:500:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  500 | module obi_atop_resolver_intf
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_cut.sv:7:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    7 | module obi_cut #(
+      |        ^~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_demux.sv:7:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    7 | module obi_demux #(
+      |        ^~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_demux.sv:114:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  114 | module obi_demux_intf #(
+      |        ^~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_err_sbr.sv:7:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    7 | module obi_err_sbr #(
+      |        ^~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_err_sbr.sv:69:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   69 | module obi_err_sbr_intf #(
+      |        ^~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_mux.sv:10:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   10 | module obi_mux #(
+      |        ^~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_mux.sv:166:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  166 | module obi_mux_intf #(
+      |        ^~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_sram_shim.sv:7:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    7 | module obi_sram_shim #(
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_xbar.sv:8:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    8 | module obi_xbar #(
+      |        ^~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/croc/rtl/obi/obi_xbar.sv:161:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  161 | module obi_xbar_intf #(
+      |        ^~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/include/cv32e40p_apu_core_pkg.sv:22:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   22 | package cv32e40p_apu_core_pkg;
+      |         ^~~~~~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/include/cv32e40p_fpu_pkg.sv:38:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   38 | package cv32e40p_fpu_pkg;
+      |         ^~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/include/cv32e40p_pkg.sv:26:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   26 | package cv32e40p_pkg;
+      |         ^~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_if_stage.sv:28:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   28 | module cv32e40p_if_stage #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/../src/cv32e40p/rtl/cv32e40p_cs_registers.sv:31:8: ... Location of module with timescale
+   31 | module cv32e40p_cs_registers
+      |        ^~~~~~~~~~~~~~~~~~~~~
+make[1]: Entering directory '/home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/obj_dir'
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_fst_c.o /usr/share/verilator/include/verilated_fst_c.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /usr/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /usr/share/verilator/include/verilated_threads.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -x c++-header Vtb_hatch__pch.h -o Vtb_hatch__pch.h.fast.gch
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -x c++-header Vtb_hatch__pch.h -o Vtb_hatch__pch.h.slow.gch
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch.o Vtb_hatch.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__0.o Vtb_hatch___024root__DepSet_hcc6b60e9__0.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__1.o Vtb_hatch___024root__DepSet_hcc6b60e9__1.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__2.o Vtb_hatch___024root__DepSet_hcc6b60e9__2.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__3.o Vtb_hatch___024root__DepSet_hcc6b60e9__3.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__4.o Vtb_hatch___024root__DepSet_hcc6b60e9__4.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__5.o Vtb_hatch___024root__DepSet_hcc6b60e9__5.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__6.o Vtb_hatch___024root__DepSet_hcc6b60e9__6.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__7.o Vtb_hatch___024root__DepSet_hcc6b60e9__7.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__8.o Vtb_hatch___024root__DepSet_hcc6b60e9__8.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__9.o Vtb_hatch___024root__DepSet_hcc6b60e9__9.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__10.o Vtb_hatch___024root__DepSet_hcc6b60e9__10.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__11.o Vtb_hatch___024root__DepSet_hcc6b60e9__11.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__12.o Vtb_hatch___024root__DepSet_hcc6b60e9__12.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__13.o Vtb_hatch___024root__DepSet_hcc6b60e9__13.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hd57ab3a5__0.o Vtb_hatch___024root__DepSet_hd57ab3a5__0.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hd57ab3a5__1.o Vtb_hatch___024root__DepSet_hd57ab3a5__1.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hd57ab3a5__2.o Vtb_hatch___024root__DepSet_hd57ab3a5__2.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch___024root__DepSet_hd57ab3a5__3.o Vtb_hatch___024root__DepSet_hd57ab3a5__3.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch_OBI_BUS__Oz5__DepSet_hcf48cada__0.o Vtb_hatch_OBI_BUS__Oz5__DepSet_hcf48cada__0.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch_OBI_BUS__Oz23__DepSet_h15400b80__0.o Vtb_hatch_OBI_BUS__Oz23__DepSet_h15400b80__0.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch__main.o Vtb_hatch__main.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch__Trace__0.o Vtb_hatch__Trace__0.cpp
+g++ -Os  -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.fast -c -o Vtb_hatch__Trace__1.o Vtb_hatch__Trace__1.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch__ConstPool_0.o Vtb_hatch__ConstPool_0.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch___024root__Slow.o Vtb_hatch___024root__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch___024root__DepSet_hcc6b60e9__0__Slow.o Vtb_hatch___024root__DepSet_hcc6b60e9__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch___024root__DepSet_hd57ab3a5__0__Slow.o Vtb_hatch___024root__DepSet_hd57ab3a5__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch_soc_ctrl_reg_pkg__Slow.o Vtb_hatch_soc_ctrl_reg_pkg__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch_soc_ctrl_reg_pkg__DepSet_hf6dff8b0__0__Slow.o Vtb_hatch_soc_ctrl_reg_pkg__DepSet_hf6dff8b0__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch_OBI_BUS__Oz5__Slow.o Vtb_hatch_OBI_BUS__Oz5__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch_OBI_BUS__Oz5__DepSet_hcf48cada__0__Slow.o Vtb_hatch_OBI_BUS__Oz5__DepSet_hcf48cada__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch_OBI_BUS__Oz23__Slow.o Vtb_hatch_OBI_BUS__Oz23__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch_OBI_BUS__Oz23__DepSet_h15400b80__0__Slow.o Vtb_hatch_OBI_BUS__Oz23__DepSet_h15400b80__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch__Syms.o Vtb_hatch__Syms.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch__Trace__0__Slow.o Vtb_hatch__Trace__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch__TraceDecls__0__Slow.o Vtb_hatch__TraceDecls__0__Slow.cpp
+g++   -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=1 -DVM_TRACE_FST=1 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -include Vtb_hatch__pch.h.slow -c -o Vtb_hatch__Trace__1__Slow.o Vtb_hatch__Trace__1__Slow.cpp
+echo "" > Vtb_hatch__ALL.verilator_deplist.tmp
+g++    verilated.o verilated_fst_c.o verilated_timing.o verilated_threads.o Vtb_hatch__ALL.a   -lz  -pthread -lpthread -latomic   -o Vtb_hatch
+rm Vtb_hatch__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/home/daniel/hatch_2.0_ihp-sg13g2_0326/Hatch/simulation/obj_dir'
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1)
+- Verilator: Built from 178.008 MB sources in 206 modules, into 22.746 MB in 38 C++ files needing 0.003 MB
+- Verilator: Walltime 30.036 s (elab=0.232, cvt=5.237, bld=24.125); cpu 6.298 s on 32 threads; alloced 237.008 MB
