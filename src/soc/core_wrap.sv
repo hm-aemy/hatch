@@ -71,7 +71,7 @@ module core_wrap import croc_pkg::*; #() (
   logic        csr_trace_addr_set;
 
   logic trng_en;
-  logic trng_value;
+  logic [31:0] trng_value;
 
   cv32e40p_top #(
     .COREV_PULP       (0),
@@ -151,11 +151,11 @@ module core_wrap import croc_pkg::*; #() (
       .trace_rdata_i(trace_rdata_i)
   );
 
-  trng i_trng (
-    .B       ( trng_en    ),
-    .Q       ( trng_value ), // last interrupt is TRNG
-    .CLK     ( clk_i      ),
-    .RESET_B ( rst_ni )
+  trng_core i_trng_core (
+    .enable       ( trng_en    ),
+    .random_word  ( trng_value ), // last interrupt is TRNG
+    .clk          ( clk_i      ),
+    .rst_n        ( rst_ni )
   );
 
 endmodule
