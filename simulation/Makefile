@@ -1,4 +1,4 @@
-HATCH_TOP=$(PWD)/..
+HATCH_TOP=$(abspath $(CURDIR)/..)
 
 VERILATOR_ARGS = -Wno-fatal -Wno-style \
 	-Wno-BLKANDNBLK -Wno-WIDTHEXPAND -Wno-WIDTHTRUNC -Wno-WIDTHCONCAT -Wno-ASCRANGE
@@ -16,3 +16,6 @@ SW_HEX ?= sw/smoketest.hex
 
 sim-verilator:
 	obj_dir/Vtb_hatch +binary="$(realpath $(SW_HEX))" 2>&1 | tee sim.log
+
+clean:
+	rm -rf obj_dir build.log sim.log waiver-out.vlt *.fst *.fst.hier
