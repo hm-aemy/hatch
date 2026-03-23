@@ -3,3 +3,4 @@ obj_dir/
 *.fst.hier
 sim.log
 build.log
+waiver-out.vlt
