@@ -5,7 +5,7 @@
 // Authors:
 // - Philippe Sauter <phsauter@iis.ee.ethz.ch>
 
-module user_domain import user_pkg::*; import croc_pkg::*; #(
+module user_domain import user_pkg::*; import croc_pkg::*; import spi_pkg::*; #(
   parameter int unsigned GpioCount = 16
 ) (
   input  logic      clk_i,
@@ -23,6 +23,11 @@ module user_domain import user_pkg::*; import croc_pkg::*; #(
   input  mgr_obi_rsp_t user_mgr_obi_rsp_i,
 
   input logic sram_impl,
+
+  output logic spi_cs_no_o,
+  output logic spi_sclk_o,
+  output logic spi_mosi_o,
+  input  logic spi_miso_i,
 
   input  logic [      GpioCount-1:0] gpio_in_sync_i, // synchronized GPIO inputs
   output logic [NumExternalIrqs-1:0] interrupts_o // interrupts to core
@@ -76,7 +81,7 @@ module user_domain import user_pkg::*; import croc_pkg::*; #(
     .mgr_port_obi_req_t ( sbr_obi_req_t    ),
     .mgr_port_obi_rsp_t ( sbr_obi_rsp_t    ),
     .NumSbrPorts        ( 2  ),
-    .NumMgrPorts        ( 2  ),
+    .NumMgrPorts        ( NumUserSbr      ),
     .NumMaxTrans        ( 2                ),
     .NumAddrRules       ( NumUserSbrRules  ),
     .addr_map_rule_t    ( addr_map_rule_t  ),
@@ -168,6 +173,38 @@ module user_domain import user_pkg::*; import croc_pkg::*; #(
     );
 
     assign bank_gnt = 1'b1;
+
+    spi_obi_req_t spi_obi_req;
+    spi_obi_rsp_t spi_obi_rsp;
+    logic [OBI_ID_WIDTH-1:0] spi_aid;
+
+    assign spi_aid = {{(OBI_ID_WIDTH-SbrObiCfg.IdWidth){1'b0}}, all_user_obi_req[UserSpi].a.aid};
+
+    assign spi_obi_req.req          = all_user_obi_req[UserSpi].req;
+    assign spi_obi_req.a.addr       = all_user_obi_req[UserSpi].a.addr;
+    assign spi_obi_req.a.we         = all_user_obi_req[UserSpi].a.we;
+    assign spi_obi_req.a.be         = all_user_obi_req[UserSpi].a.be;
+    assign spi_obi_req.a.wdata      = all_user_obi_req[UserSpi].a.wdata;
+    assign spi_obi_req.a.aid        = spi_aid;
+    assign spi_obi_req.a.a_optional = all_user_obi_req[UserSpi].a.a_optional;
+
+    assign all_user_obi_rsp[UserSpi].gnt          = spi_obi_rsp.gnt;
+    assign all_user_obi_rsp[UserSpi].rvalid       = spi_obi_rsp.rvalid;
+    assign all_user_obi_rsp[UserSpi].r.rdata      = spi_obi_rsp.r.rdata;
+    assign all_user_obi_rsp[UserSpi].r.rid        = spi_obi_rsp.r.rid[SbrObiCfg.IdWidth-1:0];
+    assign all_user_obi_rsp[UserSpi].r.err        = spi_obi_rsp.r.err;
+    assign all_user_obi_rsp[UserSpi].r.r_optional = spi_obi_rsp.r.r_optional;
+
+    spi i_spi (
+      .clk_i      ( clk_i      ),
+      .rst_ni     ( rst_ni     ),
+      .obi_req_i  ( spi_obi_req ),
+      .obi_rsp_o  ( spi_obi_rsp ),
+      .spi_cs_no  ( spi_cs_no_o ),
+      .spi_sclk_o ( spi_sclk_o ),
+      .spi_mosi_o ( spi_mosi_o ),
+      .spi_miso_i ( spi_miso_i )
+    );
 
 
 endmodule
