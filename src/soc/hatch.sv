@@ -126,10 +126,10 @@ user_domain #(
   .trace_obi_req_i ( trace_obi_req ),
   .trace_obi_rsp_o ( trace_obi_rsp ),
 
-  .spi_cs_no_o,
-  .spi_sclk_o,
-  .spi_mosi_o,
-  .spi_miso_i,
+  .spi_cs_no_o (spi_cs_no_o),
+  .spi_sclk_o  (spi_sclk_o),
+  .spi_mosi_o  (spi_mosi_o),
+  .spi_miso_i  (spi_miso_i),
 
   .gpio_in_sync_i ( gpio_in_sync ),
   .interrupts_o   ( interrupts   ),
