@@ -12,6 +12,33 @@
 #include <gpio.h>
 #include <util.h>
 
+#define SPI_SRAM_BASE_ADDR ((volatile uint32_t *)0x40000000u)
+
+static int spi_sram_smoketest(void) {
+    volatile uint32_t *spi = SPI_SRAM_BASE_ADDR;
+    const uint32_t wr0 = 0xA5A55A5Au;
+    const uint32_t wr1 = 0x0123FEDCu;
+
+    spi[0] = wr0;
+    spi[1] = wr1;
+
+    asm volatile ("nop; nop; nop; nop; nop;");
+
+    uint32_t rd0 = spi[0];
+    uint32_t rd1 = spi[1];
+
+    printf("SPI SRAM rd0=0x%x rd1=0x%x\n", rd0, rd1);
+    if (rd0 != wr0 || rd1 != wr1) {
+        printf("SPI SRAM test FAILED (exp 0x%x / 0x%x)\n", wr0, wr1);
+        uart_write_flush();
+        return -1;
+    }
+
+    printf("SPI SRAM test PASSED\n");
+    uart_write_flush();
+    return 0;
+}
+
 /// @brief Example integer square root
 /// @return integer square root of n
 uint32_t isqrt(uint32_t n) {
@@ -83,5 +110,10 @@ int main() {
     sleep_ms(10);
     printf("Tock\n");
     uart_write_flush();
+
+    if (spi_sram_smoketest() != 0) {
+        return 2;
+    }
+
     return 1;
 }

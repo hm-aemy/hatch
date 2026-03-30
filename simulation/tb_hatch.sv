@@ -33,6 +33,11 @@ module tb_hatch #(
     logic uart_rx_i;
     logic uart_tx_o;
 
+    logic spi_cs_no_o;
+    logic spi_sclk_o;
+    logic spi_mosi_o;
+    logic spi_miso_i;
+
     logic fetch_en_i;
     logic status_o;
 
@@ -301,7 +306,6 @@ module tb_hatch #(
         end else begin
             $display("@%t | [JTAG] Simulation finished: return code 0x%0h", $time, exit_code);
         end
-        $finish();
     endtask
 
 
@@ -421,10 +425,24 @@ module tb_hatch #(
         .uart_rx_i     ( uart_rx_i ),
         .uart_tx_o     ( uart_tx_o ),
 
+                .spi_cs_no_o   ( spi_cs_no_o ),
+                .spi_sclk_o    ( spi_sclk_o  ),
+                .spi_mosi_o    ( spi_mosi_o  ),
+                .spi_miso_i    ( spi_miso_i  ),
+
         .gpio_i        ( gpio_i        ),             
         .gpio_o        ( gpio_o        ),            
         .gpio_out_en_o ( gpio_out_en_o )
     );
+
+        spi_sram_model #(
+            .NumWords ( 4096 )
+        ) i_spi_sram (
+            .spi_cs_no ( spi_cs_no_o ),
+            .spi_sclk_i( spi_sclk_o  ),
+            .spi_mosi_i( spi_mosi_o  ),
+            .spi_miso_o( spi_miso_i  )
+        );
 
     assign gpio_i[ 3:0]          = '0;
     assign gpio_i[ 7:4]          = gpio_out_en_o[3:0] & gpio_o[3:0]; // loop back
@@ -470,6 +488,10 @@ module tb_hatch #(
         // wait for non-zero return value (written into core status register)
         $display("@%t | [CORE] Wait for end of code...", $time);
         jtag_wait_for_eoc(tb_data);
+                if (tb_data != 32'h0000_0001) begin
+                    $fatal(1, "[TB] Smoketest failed with return code 0x%0h", tb_data);
+                end
+                $display("@%t | [TB] Smoketest passed", $time);
 
         // finish simulation
         repeat(50) @(posedge clk);
@@ -477,6 +499,89 @@ module tb_hatch #(
         $dumpflush;
         `endif
         $finish();
+    end
+
+        initial begin
+            #100ms;
+            $fatal(1, "[TB] Global timeout reached");
+        end
+
+endmodule
+
+module spi_sram_model #(
+    parameter int unsigned NumWords = 4096
+) (
+    input  logic spi_cs_no,
+    input  logic spi_sclk_i,
+    input  logic spi_mosi_i,
+    output logic spi_miso_o
+);
+    localparam logic [7:0] SpiCmdRead  = 8'h03;
+    localparam logic [7:0] SpiCmdWrite = 8'h02;
+
+    logic [31:0] mem [0:NumWords-1];
+    logic [ 7:0] cmd_shift;
+    logic [23:0] addr_shift;
+    logic [31:0] wdata_shift;
+    logic [31:0] rdata_shift;
+    logic        active;
+    int unsigned pos_cnt;
+    int unsigned word_idx;
+
+    initial begin
+        for (int unsigned i = 0; i < NumWords; i++) begin
+            mem[i] = '0;
+        end
+    end
+
+    always @(posedge spi_sclk_i or posedge spi_cs_no or negedge spi_cs_no) begin
+        if (spi_cs_no) begin
+            active      <= 1'b0;
+            cmd_shift   <= '0;
+            addr_shift  <= '0;
+            wdata_shift <= '0;
+            rdata_shift <= '0;
+            pos_cnt     <= '0;
+            word_idx    <= '0;
+        end else if (!active) begin
+            active      <= 1'b1;
+            cmd_shift   <= '0;
+            addr_shift  <= '0;
+            wdata_shift <= '0;
+            rdata_shift <= '0;
+            pos_cnt     <= '0;
+            word_idx    <= '0;
+        end else begin
+            if (pos_cnt < 8) begin
+                cmd_shift <= {cmd_shift[6:0], spi_mosi_i};
+            end else if (pos_cnt < 32) begin
+                addr_shift <= {addr_shift[22:0], spi_mosi_i};
+            end else if ((cmd_shift == SpiCmdWrite) && (pos_cnt < 64)) begin
+                wdata_shift <= {wdata_shift[30:0], spi_mosi_i};
+                if (pos_cnt == 63) begin
+                    mem[word_idx] <= {wdata_shift[30:0], spi_mosi_i};
+                end
+            end
+
+            if (pos_cnt == 31) begin
+                word_idx <= ({addr_shift[22:0], spi_mosi_i} >> 2) % NumWords;
+                if (cmd_shift == SpiCmdRead) begin
+                    rdata_shift <= mem[({addr_shift[22:0], spi_mosi_i} >> 2) % NumWords];
+                end
+            end
+
+            pos_cnt <= pos_cnt + 1;
+        end
+    end
+
+    always @(negedge spi_sclk_i or posedge spi_cs_no) begin
+        if (spi_cs_no) begin
+            spi_miso_o <= 1'b0;
+        end else if ((cmd_shift == SpiCmdRead) && active && (pos_cnt >= 32) && (pos_cnt < 64)) begin
+            spi_miso_o <= rdata_shift[63 - pos_cnt];
+        end else begin
+            spi_miso_o <= 1'b0;
+        end
     end
 
 endmodule

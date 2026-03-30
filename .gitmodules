@@ -7,3 +7,6 @@
 [submodule "src/trng"]
 	path = src/trng
 	url = ../trng
+[submodule "src/spi-interface"]
+	path = src/spi-interface
+	url = ../spi-interface

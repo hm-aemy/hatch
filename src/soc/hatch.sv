@@ -24,6 +24,11 @@ module hatch import croc_pkg::*; #(
   input  logic uart_rx_i,
   output logic uart_tx_o,
 
+  output logic spi_cs_no_o,
+  output logic spi_sclk_o,
+  output logic spi_mosi_o,
+  input  logic spi_miso_i,
+
   input  logic [GpioCount-1:0] gpio_i,       // Input from GPIO pins
   output logic [GpioCount-1:0] gpio_o,       // Output to GPIO pins
   output logic [GpioCount-1:0] gpio_out_en_o // Output enable signal; 0 -> input, 1 -> output
@@ -120,6 +125,11 @@ user_domain #(
 
   .trace_obi_req_i ( trace_obi_req ),
   .trace_obi_rsp_o ( trace_obi_rsp ),
+
+  .spi_cs_no_o (spi_cs_no_o),
+  .spi_sclk_o  (spi_sclk_o),
+  .spi_mosi_o  (spi_mosi_o),
+  .spi_miso_i  (spi_miso_i),
 
   .gpio_in_sync_i ( gpio_in_sync ),
   .interrupts_o   ( interrupts   ),
