@@ -122,58 +122,6 @@ module user_domain import user_pkg::*; import croc_pkg::*; import spi_pkg::*; #(
     .obi_rsp_o  ( all_user_obi_rsp[UserError] )
   );
 
-    logic bank_req, bank_we, bank_gnt, bank_single_err;
-    logic [SbrObiCfg.AddrWidth-1:0] bank_byte_addr;
-    logic [SramBankAddrWidth-1:0] bank_word_addr;
-    logic [SbrObiCfg.DataWidth-1:0] bank_wdata, bank_rdata;
-    logic [SbrObiCfg.DataWidth/8-1:0] bank_be;
-
-    obi_sram_shim #(
-      .ObiCfg    ( SbrObiCfg     ),
-      .obi_req_t ( sbr_obi_req_t ),
-      .obi_rsp_t ( sbr_obi_rsp_t )
-    ) i_sram_shim (
-      .clk_i,
-      .rst_ni,
-
-      .obi_req_i ( all_user_obi_req[UserRam] ),
-      .obi_rsp_o ( all_user_obi_rsp[UserRam] ),
-
-      .req_o   ( bank_req       ),
-      .we_o    ( bank_we        ),
-      .addr_o  ( bank_byte_addr ),
-      .wdata_o ( bank_wdata     ),
-      .be_o    ( bank_be        ),
-
-      .gnt_i   ( bank_gnt   ),
-      .rdata_i ( bank_rdata )
-    );
-
-    assign bank_word_addr = bank_byte_addr[SbrObiCfg.AddrWidth-1:2];
-
-    tc_sram_impl #(
-      .NumWords  ( 2048 ),
-      .DataWidth ( 32 ),
-      .NumPorts  (  1 ),
-      .Latency   (  1 )
-    ) i_sram (
-      .clk_i,
-      .rst_ni,
-
-      .impl_i  ( sram_impl      ),
-      .impl_o  ( ), // not connected
-
-      .req_i   ( bank_req       ),
-      .we_i    ( bank_we        ),
-      .addr_i  ( bank_word_addr ),
-
-      .wdata_i ( bank_wdata ),
-      .be_i    ( bank_be    ),
-      .rdata_o ( bank_rdata )
-    );
-
-    assign bank_gnt = 1'b1;
-
     spi_obi_req_t spi_obi_req;
     spi_obi_rsp_t spi_obi_rsp;
     logic [OBI_ID_WIDTH-1:0] spi_aid;
