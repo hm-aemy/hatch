@@ -300,7 +300,7 @@ module tb_hatch #(
             jtag_dbg.wait_idle(20);
             jtag_dbg.read_dmi_exp_backoff(dm::SBData0, exit_code);
             retry_count += 1;
-        end while ((exit_code == 0) && (retry_count < 2000));
+        end while ((exit_code == 0) && (retry_count < 6000));
         if (exit_code == 0) begin
             $fatal(1, "[JTAG] Timeout waiting for end of code execution!");
         end else begin
@@ -505,6 +505,35 @@ module tb_hatch #(
             #100ms;
             $fatal(1, "[TB] Global timeout reached");
         end
+
+    logic [31:0] pc_if, pc_id, pc_ex;
+    assign pc_if = i_hatch.i_croc.i_core_wrap.i_cv32e40p.core_i.pc_if;
+    assign pc_id = i_hatch.i_croc.i_core_wrap.i_cv32e40p.core_i.pc_id;
+    assign pc_ex = i_hatch.i_croc.i_core_wrap.i_cv32e40p.core_i.pc_ex;
+
+    logic pc_trace_enable;
+
+    always_ff @(negedge clk) begin
+        if (!rst_n) begin
+            pc_trace_enable <= 1'b0;
+        end 
+        else if (rst_n && fetch_en_i) begin
+      
+            if (pc_id == 32'h100006b8) begin
+                pc_trace_enable <= 1'b1;
+                $display("@%t | [CORE] Reached target instruction at 0x100006b8!", $time);
+            end
+            // if (pc_id ==32'h100006c4 && pc_ex == 32'h10000dc8) begin
+            //     pc_trace_enable <= 1'b0;
+            //     $display("@%t | [CORE] Reached target instruction at ID:0x100006c4 EX:0x10000dc8, disabling PC trace!", $time);
+            // end
+       
+            if (pc_trace_enable) begin
+                $display("@%t | [CORE] PC_IF: 0x%h, PC_ID: 0x%h, PC_EX: 0x%h",
+                    $time, pc_if, pc_id, pc_ex);
+            end
+        end
+    end
 
 endmodule
 
