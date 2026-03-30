@@ -21,10 +21,8 @@ package user_pkg;
   // User Subordinate Address maps ////
   /////////////////////////////////////
 
-  localparam int unsigned NumUserDomainSubordinates = 2;
+  localparam int unsigned NumUserDomainSubordinates = 1;
 
-  localparam bit [31:0] UserRamAddrOffset   = croc_pkg::UserBaseAddr; // 32'h2000_0000;
-  localparam bit [31:0] UserRamAddrRange    = 32'h0000_4000;          // every subordinate has at least 4KB
   localparam bit [31:0] UserSpiAddrOffset   = 32'h4000_0000;
   localparam bit [31:0] UserSpiAddrRange    = 32'h2000_0000;          // reserve 512MB for external SPI SRAM
 
@@ -34,14 +32,12 @@ package user_pkg;
   // Enum for bus indices
   typedef enum int {
     UserError = 0,
-    UserRam   = 1,
-    UserSpi   = 2
+    UserSpi   = 1
   } user_demux_outputs_e;
 
   // Address rules given to address decoder
   localparam croc_pkg::addr_map_rule_t [NumUserSbrRules-1:0] user_addr_map = '{
-    '{ idx: UserRam, start_addr: UserRamAddrOffset, end_addr: UserRamAddrOffset + UserRamAddrRange},  // 1: User RAM
-    '{ idx: UserSpi, start_addr: UserSpiAddrOffset, end_addr: UserSpiAddrOffset + UserSpiAddrRange}    // 2: SPI SRAM window
+    '{ idx: UserSpi, start_addr: UserSpiAddrOffset, end_addr: UserSpiAddrOffset + UserSpiAddrRange}    // 1: SPI SRAM window
   };
 
 endpackage
